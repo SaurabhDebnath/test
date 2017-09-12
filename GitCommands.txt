@@ -1,0 +1,47 @@
+git init
+git add filename.txt
+git commit -m 'comit text'
+git status
+
+git log
+
+git add .   (stage all)
+git add *.html
+
+git rm file1.txt
+git commit -m "remove file1.txt"
+
+touch .gitignore  (create any file using touch command)
+
+git commit -a -m 'comment'   (staging is not required for existing files)
+
+/////////////////////////////////////////////////////////////////////////////////
+
+git init
+git add README.md
+git commit -m "first commit"
+git remote add origin https://github.com/SaurabhDebnath/Getting-Started-With-Angular-4.git
+git push -u origin master
+
+
+//////////////////////////////////////////////////////////////////////////////////
+
+git remote add origin      <url>    (connecting the remote repo to the local machine repo)
+
+git pull origin                (pulling origin to local master)
+
+git push -u origin master         (push my local master to origin)
+
+///////////////////////////////////////////////////////////////////////////////////////
+
+git branch NameNewBranch
+
+git checkout 'NameNewBranch'
+
+git checkout 'master'
+
+git marge 'NameNewBranch'
+
+git stash
+
+git stash apply
