@@ -1,0 +1,909 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Server Configurator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa;
+            color: #212529;
+        }
+
+        .header {
+            background-color: #fff;
+            color: #212529;
+            padding: 20px;
+            text-align: center;
+            border-bottom: 1px solid #dee2e6;
+        }
+
+        .header h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+
+        /* Container is now flex to allow configurator and chat panel side-by-side */
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            display: flex;
+            gap: 20px;
+        }
+
+        /* Configurator (left side) */
+        .configurator {
+            flex: 2;
+        }
+
+        .product-info {
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+        }
+
+        .product-image {
+            flex: 1;
+        }
+
+        .product-image img {
+            width: 100%;
+            border-radius: 8px;
+            max-width: 400px;
+        }
+
+        .product-details {
+            flex: 1;
+        }
+
+        .product-details h2 {
+            margin: 0 0 10px;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .product-details .model {
+            font-size: 12px;
+            color: #6c757d;
+            margin-bottom: 15px;
+        }
+
+        .product-details .description {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .product-details .details {
+            font-size: 14px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .product-details .price {
+            font-size: 20px;
+            font-weight: bold;
+            color: #212529;
+            margin-bottom: 10px;
+        }
+
+        .product-details .financing {
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+
+        .product-details .financing a {
+            color: #007bff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .product-details .financing a:hover {
+            text-decoration: underline;
+        }
+
+        .product-details .tagline {
+            font-size: 14px;
+            font-style: italic;
+            color: #6c757d;
+            margin-bottom: 20px;
+        }
+
+        .product-details button {
+            background-color: #408001;
+            color: #ffffff;
+            border: 1px solid #408001;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .product-details button:hover {
+            background-color: #4c9601;
+            border-color: #4c9601;
+        }
+
+        .components {
+            margin-top: 30px;
+        }
+
+        .components h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .components h3 button {
+            background-color: #f8f9fa;
+            color: #0063b8;
+            border: 1px solid #dee2e6;
+            padding: 5px 10px;
+            font-size: 14px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .components h3 button:hover {
+            background-color: #e9ecef;
+        }
+
+        .panel {
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            overflow: hidden;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+        }
+
+        .panel-header {
+            background-color: #f8f9fa;
+            color: #212529;
+            padding: 15px;
+            font-size: 14px;
+            font-weight: bold;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #dee2e6;
+        }
+
+        .panel-header:hover {
+            background-color: #e9ecef;
+        }
+
+        .panel-header .module-name {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .panel-content {
+            display: none;
+            padding: 15px;
+            background-color: #ffffff;
+            transition: all 0.3s ease;
+        }
+
+        .panel-header .toggle-icon {
+            transition: transform 0.3s ease;
+        }
+
+        .panel-header[aria-expanded="true"] .toggle-icon {
+            transform: rotate(180deg);
+        }
+
+        .option {
+            margin: 20px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .option label {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 15px;
+            cursor: pointer;
+            color: #636363;
+        }
+
+        .option input[type="radio"] {
+            accent-color: #0063b8;
+            transform: scale(1.5);
+            margin-right: 5px;
+        }
+
+        .option input[type="radio"]:focus {
+            outline: 2px solid #0063b8;
+            outline-offset: 2px;
+        }
+
+        .price {
+            font-weight: bold;
+            color: #212529;
+        }
+
+        .option-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .panel-header .toggle-icon {
+            color: #0063b8;
+            transition: transform 0.3s ease;
+            font-weight: bold;
+        }
+
+        /* ai icon and info icon styling */
+        .panel-header .ai-icon,
+        .info-icon {
+            width: 20px;
+            height: 20px;
+            background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='25' height='25' fill='none'%3E%3Cpath fill='url(%23a)' fill-rule='evenodd' d='m12.5 5.177-2.136 5.187L5.176 12.5l5.188 2.136 2.136 5.187 2.136-5.187 5.187-2.136-5.188-2.136zm-3.333 3.99 2.61-6.34h1.445l2.61 6.34 6.34 2.61v1.445l-6.34 2.61-2.61 6.34h-1.445l-2.61-6.34-6.34-2.61v-1.444z' clip-rule='evenodd'/%3E%3Cpath fill='url(%23b)' fill-rule='evenodd' d='M18.75 4.687V3.125h1.562v1.562h1.563V6.25h-1.563v1.562H18.75V6.25h-1.563V4.687z' clip-rule='evenodd'/%3E%3Cpath fill='url(%23c)' fill-rule='evenodd' d='M4.687 18.75v-1.563H6.25v1.563h1.562v1.563H6.25v1.562H4.687v-1.563H3.125V18.75z' clip-rule='evenodd'/%3E%3Cdefs%3E%3ClinearGradient id='a' x1='2.827' x2='23.541' y1='2.828' y2='4.426' gradientUnits='userSpaceOnUse'%3E%3Cstop stop-color='%230063B8'/%3E%3Cstop offset='.376' stop-color='%237F234F'/%3E%3Cstop offset='1' stop-color='%2340155C'/%3E%3C/linearGradient%3E%3ClinearGradient id='b' x1='2.827' x2='23.541' y1='2.828' y2='4.426' gradientUnits='userSpaceOnUse'%3E%3Cstop stop-color='%230063B8'/%3E%3Cstop offset='.376' stop-color='%237F234F'/%3E%3Cstop offset='1' stop-color='%2340155C'/%3E%3C/linearGradient%3E%3ClinearGradient id='c' x1='2.827' x2='23.541' y1='2.828' y2='4.426' gradientUnits='userSpaceOnUse'%3E%3Cstop stop-color='%230063B8'/%3E%3Cstop offset='.376' stop-color='%237F234F'/%3E%3Cstop offset='1' stop-color='%2340155C'/%3E%3C/linearGradient%3E%3C/defs%3E%3C/svg%3E");
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
+
+        .panel-header .ai-icon:hover,
+        .info-icon:hover {
+            transform: scale(1.2);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Add a button-like pressed effect */
+        .panel-header .ai-icon:active, .info-icon:active {
+            transform: scale(0.9); /* Slightly shrink the icon */
+            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2); /* Add an inset shadow */
+            background-color: rgba(0, 0, 0, 0.1); /* Add a subtle background color */
+        }
+
+        /* Tooltip Styling */
+        .panel-header .ai-icon span.tooltip,
+        .info-icon span.tooltip {
+            display: none;
+            position: absolute;
+            left: calc(100% + 10px);
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: #a9afb6;
+            color: #ffffff;
+            padding: 6px 10px;
+            border-radius: 6px;
+            font-size: 9px;
+            font-weight: normal;
+            white-space: nowrap;
+            z-index: 2;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+            border: 1px solid #dee2e6;
+        }
+
+        .panel-header .ai-icon:hover span.tooltip,
+        .info-icon:hover span.tooltip {
+            display: block;
+        }
+
+        /* Chat Panel Styles */
+        .chat-panel {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            padding: 10px;
+            height: 600px;
+        }
+
+        .chat-context {
+            flex: 1;
+            overflow-y: auto;
+            border: 1px solid #dee2e6;
+            padding: 5px;
+            margin-bottom: 10px;
+        }
+
+        .chat-context .context-item {
+            background-color: #e9ecef;
+            margin-bottom: 5px;
+            padding: 4px 8px;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 13px;
+        }
+
+        .chat-context .context-item span.remove-item {
+            cursor: pointer;
+            color: #721c24;
+            margin-left: 8px;
+        }
+
+        #chatInput {
+            padding: 10px;
+            border: 1px solid #dee2e6;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header Section -->
+    <div class="header">
+        <h1>Server Configurator</h1>
+    </div>
+
+    <!-- Main Container with Configurator and Chat Panel Side by Side -->
+    <div class="container">
+        <!-- Configurator Section -->
+        <div class="configurator">
+            <!-- Product Info Section -->
+            <div class="product-info">
+                <div class="product-image">
+                    <img src="https://via.placeholder.com/400x300.png?text=Server+Image" alt="Server Image">
+                </div>
+                <div class="product-details">
+                    <h2>PowerEdge R760xa Rack Server</h2>
+                    <p class="model">Model: R760XA</p>
+                    <p class="description">Powerful and scalable for GPU workloads</p>
+                    <p class="details">
+                        Scale as you grow with this high-performance air-cooled server engineered for a wide range of applications like AI-ML/DL training and inferencing, advanced analytics, and VDI workloads.
+                    </p>
+                    <p class="price">Starting at $<span id="totalPrice">31701.41</span></p>
+                    <p class="financing">
+                        <a href="#">Learn More</a> | <a href="#">Pre-Qualify Now</a>
+                    </p>
+                    <p class="tagline">Ideal for Artificial Intelligence</p>
+                    <button>Add to Cart</button>
+                </div>
+            </div>
+
+            <!-- Components Section -->
+            <div class="components">
+                <h3>
+                    Components
+                    <div>
+                        <button onclick="expandAll()">Expand All</button>
+                        <button onclick="collapseAll()">Collapse All</button>
+                    </div>
+                </h3>
+            </div>
+
+            <!-- Panels will be rendered here dynamically -->
+        </div>
+
+        <!-- Chat Panel Section -->
+        <div class="chat-panel">
+            <div class="chat-context" id="chatContext">
+                <!-- Dropped options context will appear here -->
+            </div>
+            <!-- New container to display dropped option tags -->
+            <div id="droppedOptions" class="dropped-options" style="margin-bottom: 10px;"></div>
+            <input id="chatInput" placeholder="Type your question here..." />
+        </div>
+    </div>
+
+    <script>
+        //Highest Capacity
+        //Dell Recomended 
+        //Fastest Speed
+        //Frequently Bought
+        const modulesData = {
+            "modules": [
+                {
+                    "id": "tpm",
+                    "name": "Trusted Platform Module",
+                    "options": [
+                        { "id": "tpm1", "name": "Trusted Platform Module 2.0 V5", "price": 59.41, "dellRecommended": true, "highestCapacity": false, "fastestSpeed": false },
+                        { "id": "tpm2", "name": "No Trusted Platform Module", "price": 0, "dellRecommended": false, "highestCapacity": false, "fastestSpeed": false }
+                    ]
+                },
+                {
+                    "id": "chassis",
+                    "name": "Chassis",
+                    "options": [
+                        { "id": "chassis1", "name": "2.5\" Chassis with up to 6 NVMe Direct Drives", "price": 100.95, "dellRecommended": false, "highestCapacity": false, "fastestSpeed": false },
+                        { "id": "chassis2", "name": "2.5\" Chassis with up to 8 NVMe HWRAID Drives, Front PERC 11", "price": 79.19, "dellRecommended": false, "highestCapacity": false, "fastestSpeed": false },
+                        { "id": "chassis3", "name": "2.5\" Chassis with up to 8 NVMe HWRAID Drives, Front PERC 12", "price": 120.58, "dellRecommended": false, "highestCapacity": false, "fastestSpeed": false },
+                        { "id": "chassis4", "name": "2.5\" Chassis with up to 8 SAS/SATA Drives, Front PERC 11", "price": 63.92, "dellRecommended": false, "highestCapacity": false, "fastestSpeed": false },
+                        { "id": "chassis5", "name": "2.5\" Chassis with up to 8 SAS/SATA Drives, Front PERC 12", "price": 83.92, "dellRecommended": true, "highestCapacity": false, "fastestSpeed": false }
+                    ]
+                },
+                {
+                    "id": "processor",
+                    "name": "Processor",
+                    "options": [
+                        { "id": "processor1", "name": "Intel® Xeon® Platinum 8452Y 2G, 36C/72T, 16GT/s, 67.5M Cache, Turbo, HT (300W) DDR5-4800", "price": 3263.73, "dellRecommended": false, "highestCapacity": false, "fastestSpeed": false },
+                        { "id": "processor2", "name": "Intel® Xeon® Platinum 8458P 2.7G, 44C/88T, 16GT/s, 82.5M Cache, Turbo, HT (350W) DDR5-4800", "price": 7402.95, "dellRecommended": false, "highestCapacity": true, "fastestSpeed": false },
+                        { "id": "processor3", "name": "Intel® Xeon® Gold 5416S 2G, 16C/32T, 16GT/s, 30M Cache, Turbo, HT (150W) DDR5-4400", "price": 322.24, "dellRecommended": true, "highestCapacity": false, "fastestSpeed": false },
+                        { "id": "processor4", "name": "Intel® Xeon® Gold 5418Y 2G, 24C/48T, 16GT/s, 45M Cache, Turbo, HT (185W) DDR5-4400", "price": 1200.12, "dellRecommended": false, "highestCapacity": false, "fastestSpeed": false },
+                        { "id": "processor5", "name": "Intel® Xeon® Silver 4509Y 2.6G, 8C/16T, 16GT/s, 22.5M Cache, Turbo, HT (125W) DDR5-4400", "price": 85.21, "dellRecommended": false, "highestCapacity": false, "fastestSpeed": false },
+                        { "id": "processor6", "name": "Intel® Xeon® Silver 4510 2.4G, 12C/24T, 16GT/s, 30M Cache, Turbo, HT (150W) DDR5-4400", "price": 90.01, "dellRecommended": false, "highestCapacity": false, "fastestSpeed": false }
+                    ]
+                },
+                {
+                    "id": "processorThermalConfig",
+                    "name": "Processor Thermal Configuration",
+                    "options": [
+                        { "id": "ptcon1", "name": "Heatsink for 2 CPU Configuration", "price": 1055.02, "dellRecommended": true, "highestCapacity": false, "fastestSpeed": false },
+                        { "id": "ptcon2", "name": "Liquid Cooling", "price": 1955.02, "dellRecommended": false, "highestCapacity": false, "fastestSpeed": false },
+                        { "id": "ptcon3", "name": "Heatsink for 2 CPU Configuration with OCP", "price": 1055.02, "dellRecommended": false, "highestCapacity": false, "fastestSpeed": false },
+                        { "id": "ptcon4", "name": "Liquid Cooling with OCP", "price": 1954.76, "dellRecommended": false, "highestCapacity": false, "fastestSpeed": false }
+                    ]
+                },
+                {
+                    "id": "memory",
+                    "name": "Memory",
+                    "options": [
+                        { "id": "memory1", "name": "16GB RDIMM, 5600MT/s, Single Rank", "price": 685.87, "dellRecommended": false, "highestCapacity": false, "fastestSpeed": false },
+                        { "id": "memory2", "name": "32GB RDIMM, 5600MT/s, Dual Rank", "price": 1088.20, "dellRecommended": false, "highestCapacity": false, "fastestSpeed": false },
+                        { "id": "memory3", "name": "64GB RDIMM, 5600MT/s, Dual Rank", "price": 2522.05, "dellRecommended": true, "highestCapacity": false, "fastestSpeed": false },
+                        { "id": "memory4", "name": "128GB RDIMM, 5600MT/s, Dual Rank x4, 32Gb BASE", "price": 5690.97, "dellRecommended": false, "highestCapacity": false, "fastestSpeed": true }
+                    ]
+                },
+                {
+                    "id": "raid",
+                    "name": "RAID Configuration",
+                    "options": [
+                        { "id": "raid1", "name": "C1, No RAID for HDDs/SSDs (Mixed Drive Types Allowed)", "price": 0, "dellRecommended": true, "highestCapacity": false, "fastestSpeed": false },
+                        { "id": "raid2", "name": "C2, RAID 0 for HDDs or SSDs (Matching Type/Speed/Capacity)", "price": 0, "dellRecommended": false, "highestCapacity": false, "fastestSpeed": false },
+                        { "id": "raid3", "name": "C3, RAID 1 for 2 HDDs or SSDs (Matching Type/Speed/Capacity)", "price": 0, "dellRecommended": false, "highestCapacity": false, "fastestSpeed": false },
+                        { "id": "raid4", "name": "C4, RAID 5 for 3 or more HDDs or SSDs (Matching Type/Speed/Capacity)", "price": 0, "dellRecommended": false, "highestCapacity": false, "fastestSpeed": false },
+                        { "id": "raid5", "name": "C7, Unconfigured RAID for HDDs or SSDs (Mixed Drive Types Allowed)", "price": 0, "dellRecommended": false, "highestCapacity": true, "fastestSpeed": false }
+                    ]
+                },
+                {
+                    "id": "storage",
+                    "name": "Storage",
+                    "options": [
+                        { "id": "storage1", "name": "800GB SSD SAS, Mixed Use, up to 24Gbps 512e 2.5 Hot Plug, AG Drive, 3DWPD", "price": 2020.81, "dellRecommended": true, "highestCapacity": false, "fastestSpeed": false },
+                        { "id": "storage2", "name": "1.6TB SSD SAS Mixed Use up to 24Gbps 512e 2.5in Hot-Plug 3DWPD , AG Drive", "price": 3868.14, "dellRecommended": false, "highestCapacity": false, "fastestSpeed": false },
+                        { "id": "storage3", "name": "1.92TB SSD SAS, Read Intensive, up to 24Gbps 512e 2.5in Hot-Plug, AG Drive", "price": 3116.14, "dellRecommended": false, "highestCapacity": false, "fastestSpeed": false }
+                    ]
+                }
+            ]
+        };
+        // Constants and global state
+        const basePrice = 31701.41;
+        const selections = {}; // will store selected option per module
+
+        // Helper: returns current state object
+        function getCurrentState() {
+            return JSON.stringify(selections, null, 2);
+        }
+
+        // Converts the current selections object into an array of {moduleId, optionId} objects
+        function getCurrentStateArray() {
+            return Object.keys(selections).map(modId => {
+                return { moduleId: modId, optionId: selections[modId].optionId };
+            });
+        }
+
+        // Dynamically create panels from modulesData
+        function renderPanels() {
+            const componentsContainer = document.querySelector('.components');
+            componentsContainer.innerHTML = ''; // clear previous content
+
+            // Header for the panels section
+            const header = document.createElement('h3');
+            header.innerHTML = `Components 
+        <div>
+            <button onclick="expandAll()">Expand All</button>
+            <button onclick="collapseAll()">Collapse All</button>
+        </div>`;
+            componentsContainer.appendChild(header);
+
+            // Create panel for each module
+            modulesData.modules.forEach(module => {
+                // Outer panel container
+                const panel = document.createElement('div');
+                panel.className = 'panel';
+
+                // Panel header
+                const panelHeader = document.createElement('div');
+                panelHeader.className = 'panel-header';
+                panelHeader.setAttribute('data-module-id', module.id);
+                panelHeader.setAttribute('data-module-name', module.name);
+
+                // Module name container
+                const moduleNameDiv = document.createElement('div');
+                moduleNameDiv.className = 'module-name';
+                moduleNameDiv.textContent = module.name;
+
+                // AI icon with tooltip (for module explanation)
+                const aiIcon = document.createElement('div');
+                aiIcon.className = 'ai-icon';
+                // When clicked, send module id and name
+                aiIcon.onclick = (event) => explainModuleWithAI(event, module.id, module.name);
+                const aiTooltip = document.createElement('span');
+                aiTooltip.className = 'tooltip';
+                aiTooltip.textContent = "Explain this module";
+                aiIcon.appendChild(aiTooltip);
+
+                moduleNameDiv.appendChild(aiIcon);
+                panelHeader.appendChild(moduleNameDiv);
+
+                // Toggle Icon
+                const toggleIcon = document.createElement('span');
+                toggleIcon.className = 'toggle-icon';
+                toggleIcon.textContent = '+';
+                panelHeader.appendChild(toggleIcon);
+
+                panel.appendChild(panelHeader);
+
+                // Panel content (options)
+                const panelContent = document.createElement('div');
+                panelContent.className = 'panel-content';
+                // For each option in a module
+                module.options.forEach(option => {
+                    const optionDiv = document.createElement('div');
+                    optionDiv.className = 'option';
+                    // Enable dragging on optionDiv
+                    optionDiv.draggable = true;
+                    optionDiv.addEventListener('dragstart', (event) => {
+                        // Pass contextual module and option data
+                        event.dataTransfer.setData('application/json', JSON.stringify({
+                            moduleId: module.id,
+                            moduleName: module.name,
+                            optionId: option.id,
+                            optionName: option.name
+                        }));
+                    });
+
+                    const optionWrapper = document.createElement('div');
+                    optionWrapper.className = 'option-wrapper';
+
+                    // Label with radio button (each option should be selectable)
+                    const label = document.createElement('label');
+                    const radio = document.createElement('input');
+                    radio.type = 'radio';
+                    radio.name = module.id;
+                    radio.value = option.name;
+                    radio.dataset.price = option.price;
+                    // Set data-option-id to avoid lookup later
+                    radio.dataset.optionId = option.id;
+                    if (option.dellRecommended) {
+                        radio.checked = true;
+                    }
+                    // When changed, update selection passing module/option info
+                    radio.onclick = () => updateSelection(radio, module.id, module.name, radio.dataset.optionId, option.name);
+                    label.appendChild(radio);
+
+                    const optionText = document.createElement('span');
+                    optionText.className = 'option-text';
+                    optionText.textContent = option.name;
+                    label.appendChild(optionText);
+                    optionWrapper.appendChild(label);
+
+                    // If dellRecommended is true, add a green tag and info icon
+                    if (option.dellRecommended) {
+                        // Create a small green tag
+                        const dellTag = document.createElement('span');
+                        dellTag.className = 'dell-recommended-tag';
+                        dellTag.textContent = 'Dell Recommended';
+                        // Inline styles for green tag (or use CSS)
+                        dellTag.style.backgroundColor = '#d4edda'; // light green background
+                        dellTag.style.color = '#155724'; // dark green text
+                        dellTag.style.fontSize = '10px';
+                        dellTag.style.padding = '2px 4px';
+                        dellTag.style.borderRadius = '4px';
+                        dellTag.style.marginRight = '5px';
+                        dellTag.style.display = 'inline-block';
+                        optionWrapper.appendChild(dellTag);
+
+                        // Create info icon for default explanation on option level
+                        const infoIcon = document.createElement('span');
+                        infoIcon.className = 'info-icon';
+                        // When clicked, send module and option details
+                        infoIcon.onclick = (event) => explainDefaultOptionWithAI(event, module.id, module.name, option.id, option.name);
+                        const infoTooltip = document.createElement('span');
+                        infoTooltip.className = 'tooltip';
+                        infoTooltip.textContent = "Dell's reason for default";
+                        infoIcon.appendChild(infoTooltip);
+                        optionWrapper.appendChild(infoIcon);
+                    }
+
+                    // If highestCapacity is true, add a blueish tag
+                    if (option.highestCapacity) {
+                        const capacityTag = document.createElement('span');
+                        capacityTag.className = 'highest-capacity-tag';
+                        capacityTag.textContent = 'Highest Capacity';
+                        capacityTag.style.backgroundColor = '#cce5ff'; // blueish background
+                        capacityTag.style.color = '#004085'; // blue text
+                        capacityTag.style.fontSize = '10px';
+                        capacityTag.style.padding = '2px 4px';
+                        capacityTag.style.borderRadius = '4px';
+                        capacityTag.style.marginRight = '5px';
+                        capacityTag.style.display = 'inline-block';
+                        optionWrapper.appendChild(capacityTag);
+                    }
+
+                    // If fastestSpeed is true, add a redish tag
+                    if (option.fastestSpeed) {
+                        const speedTag = document.createElement('span');
+                        speedTag.className = 'fastest-speed-tag';
+                        speedTag.textContent = 'Fastest Speed';
+                        speedTag.style.backgroundColor = '#f8d7da'; // redish background
+                        speedTag.style.color = '#721c24'; // red text
+                        speedTag.style.fontSize = '10px';
+                        speedTag.style.padding = '2px 4px';
+                        speedTag.style.borderRadius = '4px';
+                        speedTag.style.marginRight = '5px';
+                        speedTag.style.display = 'inline-block';
+                        optionWrapper.appendChild(speedTag);
+                    }
+
+                    optionDiv.appendChild(optionWrapper);
+
+                    // Price span
+                    const priceSpan = document.createElement('span');
+                    priceSpan.className = 'price';
+                    priceSpan.textContent = `$${parseFloat(option.price).toFixed(2)}`;
+                    optionDiv.appendChild(priceSpan);
+
+                    panelContent.appendChild(optionDiv);
+                });
+                panel.appendChild(panelContent);
+                componentsContainer.appendChild(panel);
+            });
+        }
+
+        // Override the functions for evolving events:
+
+        function explainModuleWithAI(event, moduleId, moduleName) {
+            event.stopPropagation();
+            const stateArray = getCurrentStateArray();
+            const finalObject = {
+                query: `Explain module: ${moduleName}`,
+                context: [{ moduleId: moduleId }],
+                state: stateArray
+            };
+            console.log("Explain Module Object:", finalObject);
+            // Later pass finalObject to your underlying chat system
+        }
+
+        function explainDefaultOptionWithAI(event, moduleId, moduleName, optionId, optionName) {
+            event.preventDefault();
+            event.stopPropagation();
+            const stateArray = getCurrentStateArray();
+            const finalObject = {
+                query: `Explain option: ${optionName} in module: ${moduleName}`,
+                context: [{ moduleId: moduleId, optionId: optionId }],
+                state: stateArray
+            };
+            console.log("Explain Default Option Object:", finalObject);
+            // Later pass finalObject to your underlying chat system
+        }
+
+        // Update the selection and recalculate total price
+        function updateSelection(input, moduleId, moduleName, optionId, optionName) {
+            const price = parseFloat(input.dataset.price) || 0;
+            // Store the selection using module id as key.
+            selections[moduleId] = { moduleName, optionId, optionName, price };
+            
+            // Log the current state array.
+            console.log("Current State Array:", getCurrentStateArray());
+            
+            // Update UI (total price)
+            updateUI();
+        }
+
+        // This function recalculates the total price and updates the #totalPrice element.
+        function updateUI() {
+            let totalPrice = basePrice;
+            // Loop through all selections to add each option's price.
+            for (const data of Object.values(selections)) {
+                totalPrice += data.price;
+            }
+            // Update the UI element holding the total price.
+            document.getElementById('totalPrice').textContent = totalPrice.toFixed(2);
+        }
+
+        // Panel Management Functions (unchanged)
+        function togglePanel(header) {
+            try {
+                const panelContent = header.nextElementSibling;
+                const toggleIcon = header.querySelector('.toggle-icon');
+                const isVisible = window.getComputedStyle(panelContent).display !== 'none';
+                panelContent.style.display = isVisible ? 'none' : 'block';
+                toggleIcon.textContent = !isVisible ? '-' : '+';
+            } catch (error) {
+                console.error('Error toggling panel:', error);
+            }
+        }
+
+        function expandAll() {
+            try {
+                document.querySelectorAll('.panel').forEach(panel => {
+                    const content = panel.querySelector('.panel-content');
+                    const toggleIcon = panel.querySelector('.toggle-icon');
+                    content.style.display = 'block';
+                    toggleIcon.textContent = '-';
+                });
+            } catch (error) {
+                console.error('Error expanding panels:', error);
+            }
+        }
+
+        function collapseAll() {
+            try {
+                document.querySelectorAll('.panel').forEach(panel => {
+                    const content = panel.querySelector('.panel-content');
+                    const toggleIcon = panel.querySelector('.toggle-icon');
+                    content.style.display = 'none';
+                    toggleIcon.textContent = '+';
+                });
+            } catch (error) {
+                console.error('Error collapsing panels:', error);
+            }
+        }
+
+        // Initialize event listeners after DOM load
+        document.addEventListener('DOMContentLoaded', () => {
+            try {
+                renderPanels();
+
+                // Initialize selections based on default checked radio buttons
+                document.querySelectorAll('input[type="radio"]:checked').forEach(radio => {
+                    const moduleId = radio.name;
+                    // Get module info from modulesData.
+                    const module = modulesData.modules.find(mod => mod.id === moduleId);
+                    if (module) {
+                        const optionId = module.options.find(opt => opt.name === radio.value)?.id;
+                        updateSelection(radio, module.id, module.name, optionId, radio.value);
+                    }
+                });
+
+                // Panel header click listeners to toggle panels on click, if needed.
+                document.querySelectorAll('.panel-header').forEach(header => {
+                    header.addEventListener('click', (event) => {
+                        if (!event.target.closest('.ai-icon') && !event.target.closest('.info-icon')) {
+                            togglePanel(header);
+                        }
+                    });
+                });
+
+                // Start with panels collapsed.
+                collapseAll();
+
+                // After default selections have been processed, update the total price.
+                updateUI();
+            } catch (error) {
+                console.error('Error initializing:', error);
+            }
+        });
+
+        // Setup drag & drop for chat input and handling Enter keypress
+        document.addEventListener('DOMContentLoaded', () => {
+            const chatInput = document.getElementById('chatInput');
+            const droppedOptionsContainer = document.getElementById('droppedOptions');
+            const chatContext = document.getElementById('chatContext');
+
+            // Allow chatInput to be a drop target
+            chatInput.addEventListener('dragover', (event) => {
+                event.preventDefault();
+            });
+
+            chatInput.addEventListener('drop', (event) => {
+                event.preventDefault();
+                // Extract contextual option data from the dropped element.
+                const data = event.dataTransfer.getData('application/json');
+                if (data) {
+                    const info = JSON.parse(data);
+
+                    // Check for duplicate: if a tag with the same moduleId and optionId already exists, don't add again.
+                    const duplicate = Array.from(droppedOptionsContainer.children).some(tag => {
+                        return tag.dataset.moduleId === info.moduleId && tag.dataset.optionId === info.optionId;
+                    });
+                    if (duplicate) {
+                        return; // Prevent adding duplicate
+                    }
+
+                    // Create a tag representing the dropped option.
+                    const tag = document.createElement('span');
+                    tag.className = 'chat-option-tag';
+                    // Set text content as moduleName: optionName
+                    tag.textContent = `${info.moduleName}: ${info.optionName}`;
+                    // Also store moduleId and optionId on the tag for later use
+                    tag.dataset.moduleId = info.moduleId;
+                    tag.dataset.optionId = info.optionId;
+
+                    tag.style.backgroundColor = '#e2f0d9';
+                    tag.style.color = '#155724';
+                    tag.style.padding = '4px 8px';
+                    tag.style.borderRadius = '12px';
+                    tag.style.marginRight = '5px';
+                    tag.style.display = 'inline-flex';
+                    tag.style.alignItems = 'center';
+                    tag.style.fontSize = '14px';
+
+                    // Create a cross to remove tag
+                    const removeIcon = document.createElement('span');
+                    removeIcon.textContent = ' ×';
+                    removeIcon.style.cursor = 'pointer';
+                    removeIcon.style.fontWeight = 'bold';
+                    removeIcon.style.marginLeft = '4px';
+                    removeIcon.addEventListener('click', () => {
+                        droppedOptionsContainer.removeChild(tag);
+                    });
+                    tag.appendChild(removeIcon);
+
+                    // Append the tag to the dropped options container
+                    droppedOptionsContainer.appendChild(tag);
+                }
+            });
+
+            // Listen for Enter key on chatInput to send message along with context
+            chatInput.addEventListener('keydown', (event) => {
+                if (event.key === 'Enter') {
+                    event.preventDefault();
+                    const text = chatInput.value.trim();
+                    if (text || droppedOptionsContainer.childElementCount > 0) {
+                        // Collect dropped options context for display and for the object.
+                        let optionsContext = [];
+                        let contextPairs = [];
+                        Array.from(droppedOptionsContainer.children).forEach(tag => {
+                            const moduleId = tag.dataset.moduleId;
+                            const optionId = tag.dataset.optionId;
+                            // Remove cross icon text from the displayed text (if present)
+                            const cleanText = tag.innerText.replace(/\s*×\s*$/, '');
+                            optionsContext.push(`${cleanText}`);
+                            contextPairs.push({ moduleId, optionId });
+                        });
+
+                        // Create a chat message element with message text and context using HTML for new lines.
+                        const message = document.createElement('div');
+                        message.className = 'context-item';
+                        if (optionsContext.length) {
+                            message.innerHTML = `Message: ${text}<br><br>Context:<br>${optionsContext.join('<br>')}`;
+                        } else {
+                            message.textContent = `Message: ${text}`;
+                        }
+                        // Append rendered message to the chat context area.
+                        chatContext.appendChild(message);
+
+                        // Create an object that contains the user query and all context pairs.
+                        const stateArray = getCurrentStateArray();
+                        const finalObject = {
+                            query: text,
+                            context: contextPairs,
+                            state: stateArray
+                        };
+                        // Now send or log the object as needed.
+                        console.log("Final Chat Object:", finalObject);
+
+                        // Clear the input and dropped options container.
+                        chatInput.value = '';
+                        droppedOptionsContainer.innerHTML = '';
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

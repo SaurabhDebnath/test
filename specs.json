@@ -1,0 +1,948 @@
+{
+    "modules": [
+        {
+            "id": "tpm",
+            "name": "Trusted Platform Module",
+            "description": "A Trusted Platform Module (TPM) is a microchip that can securely store login information and biometric data while also checking the health of your PC. TPMs can also generate and store encryption keys, which can be used to encrypt your hard drive and secure your data.",
+            "options": [
+                {
+                    "id": "tpm1",
+                    "name": "Trusted Platform Module 2.0 V5",
+                    "description": "The TPM 2.0 V5 is a hardware-based security feature that provides a secure foundation for your system. It helps protect your data by encrypting it and storing it securely on your device. The TPM 2.0 V5 also provides secure boot capabilities, which help ensure that your system starts up securely and that only trusted software is loaded during the boot process.",
+                    "technicalSpecifications": {
+                        "version": "2.0",
+                        "securityFeatures": [
+                            "Secure Boot",
+                            "Device Encryption",
+                            "Key Management"
+                        ],
+                        "encryptionAlgorithms": [
+                            "RSA",
+                            "AES",
+                            "SHA-256"
+                        ],
+                        "keySizes": [
+                            "2048-bit",
+                            "256-bit"
+                        ]
+                    },
+                    "useCaseExamples": [
+                        "Servers managing sensitive data",
+                        "Environments requiring compliance with security standards",
+                        "Financial or healthcare systems"
+                    ],
+                    "proactiveGuidance": [
+                        "Ensure operating system and software support TPM 2.0",
+                        "Verify security policies mandate TPM use",
+                        "Enable TPM in BIOS for full functionality"
+                    ],
+                    "price": 59.41,
+                    "dellRecommended": true,
+                    "highestCapacity": false,
+                    "fastestSpeed": false
+                },
+                {
+                    "id": "tpm2",
+                    "name": "No Trusted Platform Module",
+                    "description": "Choosing no Trusted Platform Module means the server lacks hardware-based security for cryptographic keys or secure operations. Suitable only for non-security-critical deployments like internal development or non-critical apps. Without TPM, the server may be more vulnerable to attacks, and compliance with security standards may be challenging.",
+                    "technicalSpecifications": {},
+                    "useCaseExamples": [
+                        "Basic application servers",
+                        "Cost-sensitive configurations",
+                        "Non-production environments"
+                    ],
+                    "proactiveGuidance": [
+                        "Evaluate security needs, as no TPM increases vulnerability",
+                        "Consider alternative security measures (e.g., software encryption)",
+                        "Not recommended for sensitive data"
+                    ],
+                    "price": 0,
+                    "dellRecommended": false,
+                    "highestCapacity": false,
+                    "fastestSpeed": false
+                }
+            ]
+        },
+        {
+            "id": "chassis",
+            "name": "Chassis",
+            "description": "The chassis is the physical frame or enclosure that houses all the internal components of a computer. It provides protection and support for the components, as well as a way to organize and connect them.",
+            "options": [
+                {
+                    "id": "chassis1",
+                    "name": "2.5\" Chassis with up to 6 NVMe Direct Drives",
+                    "description": "Designed for high-performance applications requiring ultra-low latency and high-speed storage, this chassis supports up to 6 NVMe drives directly attached to the processor via PCIe lanes, bypassing traditional controllers. Ideal for workloads like real-time analytics or high-frequency trading, but data redundancy must be managed elsewhere (e.g., software).",
+                    "technicalSpecifications": {
+                        "driveType": "NVMe",
+                        "maxDrives": 6,
+                        "raidController": "None (Direct Attach)"
+                    },
+                    "useCaseExamples": [
+                        "High-performance computing",
+                        "Real-time data analytics",
+                        "Low-latency caching"
+                    ],
+                    "proactiveGuidance": [
+                        "Verify processor has sufficient PCIe lanes (min. 24 recommended)",
+                        "Consider enhanced cooling for NVMe drives due to high heat output",
+                        "Ensure PSU supports additional power draw"
+                    ],
+                    "price": 100.95,
+                    "dellRecommended": false,
+                    "highestCapacity": false,
+                    "fastestSpeed": false
+                },
+                {
+                    "id": "chassis2",
+                    "name": "2.5\" Chassis with up to 8 NVMe HWRAID Drives, Front PERC 11",
+                    "description": "Optimized for environments needing high-performance storage and data redundancy, this chassis holds up to 8 NVMe drives managed by the Front PERC 11 hardware RAID controller. Supports RAID levels (e.g., 0, 1, 5, 6, 10) for protection and performance, perfect for virtualized setups or databases.",
+                    "technicalSpecifications": {
+                        "driveType": "NVMe",
+                        "maxDrives": 8,
+                        "raidController": "PERC 11"
+                    },
+                    "useCaseExamples": [
+                        "Virtualized environments needing RAID",
+                        "Database servers with redundancy",
+                        "Enterprise applications"
+                    ],
+                    "proactiveGuidance": [
+                        "Select compatible RAID configuration for workload",
+                        "Ensure power supply supports additional drives",
+                        "Verify sufficient PCIe lanes for full bandwidth"
+                    ],
+                    "price": 79.19,
+                    "dellRecommended": false,
+                    "highestCapacity": false,
+                    "fastestSpeed": false
+                },
+                {
+                    "id": "chassis3",
+                    "name": "2.5\" Chassis with up to 8 NVMe HWRAID Drives, Front PERC 12",
+                    "description": "Similar to the PERC 11 version, this chassis supports up to 8 NVMe drives but with the advanced Front PERC 12 hardware RAID controller, offering improved RAID processing, faster performance, and support for the latest RAID features. Ideal for environments requiring cutting-edge storage performance and data protection.",
+                    "technicalSpecifications": {
+                        "driveType": "NVMe",
+                        "maxDrives": 8,
+                        "raidController": "PERC 12"
+                    },
+                    "useCaseExamples": [
+                        "High-performance virtualized environments",
+                        "Large-scale databases",
+                        "Enterprise applications requiring latest RAID technology"
+                    ],
+                    "proactiveGuidance": [
+                        "Ensure compatibility with latest firmware and drivers",
+                        "Select appropriate RAID level for workload",
+                        "Verify power and cooling for high-speed drives"
+                    ],
+                    "price": 120.58,
+                    "dellRecommended": false,
+                    "highestCapacity": false,
+                    "fastestSpeed": false
+                },
+                {
+                    "id": "chassis4",
+                    "name": "2.5\" Chassis with up to 8 SAS/SATA Drives, Front PERC 11",
+                    "description": "This chassis supports up to 8 SAS or SATA drives, managed by the Front PERC 11 hardware RAID controller. SAS drives offer higher performance and reliability, while SATA provides cost-effectiveness. Suitable for enterprise storage, file servers, or backup systems with robust RAID options for data protection.",
+                    "technicalSpecifications": {
+                        "driveType": "SAS/SATA",
+                        "maxDrives": 8,
+                        "raidController": "PERC 11"
+                    },
+                    "useCaseExamples": [
+                        "Enterprise storage solutions",
+                        "File servers",
+                        "Backup and archival systems"
+                    ],
+                    "proactiveGuidance": [
+                        "Choose SAS for performance or SATA for cost savings",
+                        "Ensure power supply supports multiple drives",
+                        "Select RAID level based on redundancy and performance needs"
+                    ],
+                    "price": 63.92,
+                    "dellRecommended": false,
+                    "highestCapacity": false,
+                    "fastestSpeed": false
+                },
+                {
+                    "id": "chassis5",
+                    "name": "2.5\" Chassis with up to 8 SAS/SATA Drives, Front PERC 12",
+                    "description": "A versatile chassis supporting up to 8 SAS or SATA drives, managed by the advanced Front PERC 12 RAID controller. SAS offers higher performance/reliability, while SATA provides cost-effectiveness. Ideal for enterprise storage, backups, or archival with robust RAID options.",
+                    "technicalSpecifications": {
+                        "driveType": "SAS/SATA",
+                        "maxDrives": 8,
+                        "raidController": "PERC 12"
+                    },
+                    "useCaseExamples": [
+                        "Enterprise storage solutions",
+                        "Backup and archival systems",
+                        "File servers"
+                    ],
+                    "proactiveGuidance": [
+                        "Match storage drives to SAS/SATA compatibility",
+                        "Check cooling capacity for multiple drives",
+                        "Ensure RAID level aligns with data needs"
+                    ],
+                    "price": 83.92,
+                    "dellRecommended": true,
+                    "highestCapacity": false,
+                    "fastestSpeed": false
+                }
+            ]
+        },
+        {
+            "id": "processor",
+            "name": "Processor",
+            "description": "The processor, also known as the CPU (central processing unit), is the brain of the computer. It performs the calculations and processes the data that make your computer run. The processor is one of the most important components of a computer, as it determines the speed and performance of the system.",
+            "options": [
+                {
+                    "id": "processor1",
+                    "name": "Intel® Xeon® Platinum 8452Y 2G, 36C/72T, 16GT/s, 67.5M Cache, Turbo, HT (300W) DDR5-4800",
+                    "description": "A top-tier processor for demanding workloads, featuring 36 cores and 72 threads for massive parallel processing. With a 67.5MB cache and DDR5-4800 support, it excels in virtualization, HPC, and large databases. Its 300W TDP requires advanced cooling.",
+                    "technicalSpecifications": {
+                        "model": "8452Y",
+                        "frequency": "2GHz",
+                        "cores": 36,
+                        "threads": 72,
+                        "cache": "67.5M",
+                        "power": "300W",
+                        "memory": "DDR5-4800",
+                        "PCIeLanes": 80
+                    },
+                    "useCaseExamples": [
+                        "Virtualization clusters",
+                        "Large-scale databases",
+                        "High-performance computing (HPC)"
+                    ],
+                    "proactiveGuidance": [
+                        "Requires advanced cooling (e.g., liquid cooling)",
+                        "Ensure power supply supports 300W TDP",
+                        "Confirm memory compatibility with DDR5-4800"
+                    ],
+                    "price": 3263.73,
+                    "dellRecommended": false,
+                    "highestCapacity": false,
+                    "fastestSpeed": false
+                },
+                {
+                    "id": "processor2",
+                    "name": "Intel® Xeon® Platinum 8458P 2.7G, 44C/88T, 16GT/s, 82.5M Cache, Turbo, HT (350W) DDR5-4800",
+                    "description": "An ultra-high-performance processor with 44 cores and 88 threads, designed for the most compute-intensive workloads. Its 2.7GHz frequency, 82.5MB cache, and 350W TDP make it ideal for large-scale AI, complex simulations, or massive databases. Requires liquid cooling and a robust power supply.",
+                    "technicalSpecifications": {
+                        "model": "8458P",
+                        "frequency": "2.7GHz",
+                        "cores": 44,
+                        "threads": 88,
+                        "cache": "82.5M",
+                        "power": "350W",
+                        "memory": "DDR5-4800",
+                        "PCIeLanes": 80
+                    },
+                    "useCaseExamples": [
+                        "Large-scale AI and machine learning",
+                        "Complex simulations",
+                        "Massive databases"
+                    ],
+                    "proactiveGuidance": [
+                        "Mandatory liquid cooling required",
+                        "Ensure power supply can handle 350W TDP",
+                        "Verify chassis and motherboard support"
+                    ],
+                    "price": 7402.95,
+                    "dellRecommended": false,
+                    "highestCapacity": true,
+                    "fastestSpeed": false
+                },
+                {
+                    "id": "processor3",
+                    "name": "Intel® Xeon® Gold 5416S 2G, 16C/32T, 16GT/s, 30M Cache, Turbo, HT (150W) DDR5-4400",
+                    "description": "A cost-effective processor with 16 cores and 32 threads, suitable for medium-sized workloads such as application servers or smaller databases. Its 150W TDP allows for standard cooling solutions, making it a balanced choice for general-purpose computing.",
+                    "technicalSpecifications": {
+                        "model": "5416S",
+                        "frequency": "2GHz",
+                        "cores": 16,
+                        "threads": 32,
+                        "cache": "30M",
+                        "power": "150W",
+                        "memory": "DDR5-4400",
+                        "PCIeLanes": 64
+                    },
+                    "useCaseExamples": [
+                        "Application servers",
+                        "Small to medium databases",
+                        "General-purpose computing"
+                    ],
+                    "proactiveGuidance": [
+                        "Compatible with standard heatsinks",
+                        "Ensure memory is DDR5-4400 compatible",
+                        "Verify PCIe lanes for storage and networking needs"
+                    ],
+                    "price": 322.24,
+                    "dellRecommended": true,
+                    "highestCapacity": false,
+                    "fastestSpeed": false
+                },
+                {
+                    "id": "processor4",
+                    "name": "Intel® Xeon® Gold 5418Y 2G, 24C/48T, 16GT/s, 45M Cache, Turbo, HT (185W) DDR5-4400",
+                    "description": "A balanced processor with 24 cores and 48 threads, ideal for multi-threaded apps like web hosting or medium databases. Its 45MB cache and 185W TDP offer efficiency and performance with standard cooling.",
+                    "technicalSpecifications": {
+                        "model": "5418Y",
+                        "frequency": "2GHz",
+                        "cores": 24,
+                        "threads": 48,
+                        "cache": "45M",
+                        "power": "185W",
+                        "memory": "DDR5-4400",
+                        "PCIeLanes": 64
+                    },
+                    "useCaseExamples": [
+                        "Web hosting",
+                        "Application servers",
+                        "Medium-sized databases"
+                    ],
+                    "proactiveGuidance": [
+                        "Compatible with standard heatsinks",
+                        "Optimize memory for multi-threading",
+                        "Verify PCIe lanes for drive-heavy chassis"
+                    ],
+                    "price": 1200.12,
+                    "dellRecommended": false,
+                    "highestCapacity": false,
+                    "fastestSpeed": false
+                },
+                {
+                    "id": "processor5",
+                    "name": "Intel® Xeon® Silver 4509Y 2.6G, 8C/16T, 16GT/s, 22.5M Cache, Turbo, HT (125W) DDR5-4400",
+                    "description": "An entry-level processor with 8 cores and 16 threads for cost-effective, lighter workloads like small business servers or edge computing. Its 125W TDP suits basic cooling, but limited cores restrict scalability.",
+                    "technicalSpecifications": {
+                        "model": "4509Y",
+                        "frequency": "2.6GHz",
+                        "cores": 8,
+                        "threads": 16,
+                        "cache": "22.5M",
+                        "power": "125W",
+                        "memory": "DDR5-4400",
+                        "PCIeLanes": 32
+                    },
+                    "useCaseExamples": [
+                        "Small business servers",
+                        "Development environments",
+                        "Edge computing"
+                    ],
+                    "proactiveGuidance": [
+                        "Sufficient for basic cooling solutions",
+                        "May limit performance with high drive counts",
+                        "Check PCIe lane availability for NVMe"
+                    ],
+                    "price": 85.21,
+                    "dellRecommended": false,
+                    "highestCapacity": false,
+                    "fastestSpeed": false
+                },
+                {
+                    "id": "processor6",
+                    "name": "Intel® Xeon® Silver 4510 2.4G, 12C/24T, 16GT/s, 30M Cache, Turbo, HT (150W) DDR5-4400",
+                    "description": "A slightly more powerful entry-level processor with 12 cores and 24 threads, offering better performance than the 4509Y for small to medium business servers or development environments. Its 150W TDP requires standard cooling.",
+                    "technicalSpecifications": {
+                        "model": "4510",
+                        "frequency": "2.4GHz",
+                        "cores": 12,
+                        "threads": 24,
+                        "cache": "30M",
+                        "power": "150W",
+                        "memory": "DDR5-4400",
+                        "PCIeLanes": 48
+                    },
+                    "useCaseExamples": [
+                        "Small to medium business servers",
+                        "Development and testing environments",
+                        "Light virtualization"
+                    ],
+                    "proactiveGuidance": [
+                        "Ensure cooling solution is adequate for 150W TDP",
+                        "Verify memory compatibility with DDR5-4400",
+                        "Check PCIe lanes for expansion needs"
+                    ],
+                    "price": 90.01,
+                    "dellRecommended": false,
+                    "highestCapacity": false,
+                    "fastestSpeed": false
+                }
+            ]
+        },
+        {
+            "id": "processorThermalConfig",
+            "name": "Processor Thermal Configuration",
+            "description": "The processor thermal configuration refers to the cooling system used to keep the processor at an optimal temperature. Processors generate heat when they are in use, and if they get too hot, they can malfunction or even be damaged. The thermal configuration includes the heatsink or liquid cooling system that is used to dissipate the heat generated by the processor.",
+            "options": [
+                {
+                    "id": "ptcon1",
+                    "name": "Heatsink for 2 CPU Configuration",
+                    "description": "A standard air-cooling solution for dual-CPU setups with processors up to 200W TDP each. Adequate for general-purpose servers, but may struggle in high-temperature environments or with higher TDPs.",
+                    "technicalSpecifications": {
+                        "type": "Heatsink",
+                        "cpuSupport": "2 CPUs",
+                        "maxTDP": "200W per CPU"
+                    },
+                    "useCaseExamples": [
+                        "General-purpose dual-CPU servers",
+                        "Moderate workload environments"
+                    ],
+                    "proactiveGuidance": [
+                        "Suitable for processors up to 200W TDP",
+                        "Ensure adequate airflow in chassis",
+                        "Monitor temperatures in warm climates"
+                    ],
+                    "price": 1055.02,
+                    "dellRecommended": true,
+                    "highestCapacity": false,
+                    "fastestSpeed": false
+                },
+                {
+                    "id": "ptcon2",
+                    "name": "Liquid Cooling",
+                    "description": "An advanced liquid-based cooling solution for high-TDP processors (up to 350W per CPU), ideal for heavy workloads like AI or HPC. Maintains lower temperatures for sustained performance.",
+                    "technicalSpecifications": {
+                        "type": "Liquid Cooling",
+                        "cpuSupport": "2 CPUs",
+                        "maxTDP": "350W per CPU"
+                    },
+                    "useCaseExamples": [
+                        "High-performance computing",
+                        "AI and machine learning",
+                        "Overclocked environments"
+                    ],
+                    "proactiveGuidance": [
+                        "Recommended for processors above 250W TDP",
+                        "Requires maintenance checks for coolant",
+                        "Ensure chassis supports liquid cooling"
+                    ],
+                    "price": 1955.02,
+                    "dellRecommended": false,
+                    "highestCapacity": false,
+                    "fastestSpeed": false
+                },
+                {
+                    "id": "ptcon3",
+                    "name": "Heatsink for 2 CPU Configuration with OCP",
+                    "description": "A heatsink designed for dual-CPU configurations in OCP (Open Compute Project) compliant setups. Provides standard air cooling for processors up to 200W TDP each, with compatibility for OCP modules or cards.",
+                    "technicalSpecifications": {
+                        "type": "Heatsink",
+                        "cpuSupport": "2 CPUs",
+                        "maxTDP": "200W per CPU",
+                        "ocpSupport": true
+                    },
+                    "useCaseExamples": [
+                        "OCP-compliant data centers",
+                        "Modular server designs",
+                        "Environments using OCP networking or storage"
+                    ],
+                    "proactiveGuidance": [
+                        "Ensure chassis and components are OCP-compatible",
+                        "Verify airflow with OCP modules installed",
+                        "Suitable for processors up to 200W TDP"
+                    ],
+                    "price": 1055.02,
+                    "dellRecommended": false,
+                    "highestCapacity": false,
+                    "fastestSpeed": false
+                },
+                {
+                    "id": "ptcon4",
+                    "name": "Liquid Cooling with OCP",
+                    "description": "Combines advanced liquid cooling for high-TDP processors (up to 350W per CPU) with support for OCP-compliant configurations. Ideal for high-performance, modular data centers requiring efficient cooling and OCP compatibility.",
+                    "technicalSpecifications": {
+                        "type": "Liquid Cooling",
+                        "cpuSupport": "2 CPUs",
+                        "maxTDP": "350W per CPU",
+                        "ocpSupport": true
+                    },
+                    "useCaseExamples": [
+                        "High-performance OCP data centers",
+                        "AI and HPC in modular environments",
+                        "Overclocked OCP servers"
+                    ],
+                    "proactiveGuidance": [
+                        "Ensure chassis supports liquid cooling and OCP",
+                        "Regularly check coolant levels and system integrity",
+                        "Verify compatibility with OCP modules"
+                    ],
+                    "price": 1954.76,
+                    "dellRecommended": false,
+                    "highestCapacity": false,
+                    "fastestSpeed": false
+                }
+            ]
+        },
+        {
+            "id": "memory",
+            "name": "Memory",
+            "description": "Memory, also known as RAM (random access memory), is the temporary storage space that a computer uses to store data that is currently being used or processed. The more memory a computer has, the more data it can store and access quickly, which can improve the performance of the system.",
+            "options": [
+                {
+                    "id": "memory1",
+                    "name": "16GB RDIMM, 5600MT/s, Single Rank",
+                    "description": "A basic 16GB module for small-scale servers with modest needs. Its 5600MT/s speed offers high performance, but single rank limits bandwidth in some scenarios. Ideal for lightweight tasks.",
+                    "technicalSpecifications": {
+                        "capacity": "16GB",
+                        "speed": "5600MT/s",
+                        "rank": "Single Rank"
+                    },
+                    "useCaseExamples": [
+                        "Small web servers",
+                        "Testing environments",
+                        "Edge devices"
+                    ],
+                    "proactiveGuidance": [
+                        "Verify processor supports 5600MT/s",
+                        "Limited capacity for memory-intensive tasks",
+                        "Consider multi-channel setup"
+                    ],
+                    "price": 685.87,
+                    "dellRecommended": false,
+                    "highestCapacity": false,
+                    "fastestSpeed": false
+                },
+                {
+                    "id": "memory2",
+                    "name": "32GB RDIMM, 5600MT/s, Dual Rank",
+                    "description": "A 32GB module offering double the capacity of the 16GB option, with dual rank for improved performance in memory-intensive applications. Suitable for medium-sized workloads or virtualization with moderate memory requirements.",
+                    "technicalSpecifications": {
+                        "capacity": "32GB",
+                        "speed": "5600MT/s",
+                        "rank": "Dual Rank"
+                    },
+                    "useCaseExamples": [
+                        "Small to medium databases",
+                        "Application servers",
+                        "Moderate virtualization"
+                    ],
+                    "proactiveGuidance": [
+                        "Ensure processor supports DDR5-5600",
+                        "Optimize for multi-channel configurations",
+                        "Check memory slot availability for expansion"
+                    ],
+                    "price": 1088.20,
+                    "dellRecommended": false,
+                    "highestCapacity": false,
+                    "fastestSpeed": false
+                },
+                {
+                    "id": "memory3",
+                    "name": "64GB RDIMM, 5600MT/s, Dual Rank",
+                    "description": "A high-capacity 64GB module for demanding applications like virtualization or databases. Dual rank improves interleaving, enhancing performance in memory-bound workloads, with 5600MT/s speed.",
+                    "technicalSpecifications": {
+                        "capacity": "64GB",
+                        "speed": "5600MT/s",
+                        "rank": "Dual Rank"
+                    },
+                    "useCaseExamples": [
+                        "Virtualization hosts",
+                        "Database servers",
+                        "In-memory analytics"
+                    ],
+                    "proactiveGuidance": [
+                        "Optimize for multi-channel configurations",
+                        "Ensure processor supports DDR5-5600",
+                        "Check memory slot availability"
+                    ],
+                    "price": 2522.05,
+                    "dellRecommended": true,
+                    "highestCapacity": false,
+                    "fastestSpeed": false
+                },
+                {
+                    "id": "memory4",
+                    "name": "128GB RDIMM, 5600MT/s, Dual Rank x4, 32Gb BASE",
+                    "description": "A top-tier 128GB module for the most memory-intensive workloads, such as large-scale analytics or in-memory databases. The Dual Rank x4 configuration may offer higher bandwidth in specific setups, making it ideal for environments requiring massive memory capacity and speed.",
+                    "technicalSpecifications": {
+                        "capacity": "128GB",
+                        "speed": "5600MT/s",
+                        "rank": "Dual Rank x4"
+                    },
+                    "useCaseExamples": [
+                        "Big data processing",
+                        "Large virtualized environments",
+                        "In-memory computing"
+                    ],
+                    "proactiveGuidance": [
+                        "Ensure processor and motherboard support 128GB modules",
+                        "Verify multi-channel setup for optimal performance",
+                        "Check power and cooling for high memory density"
+                    ],
+                    "price": 5690.97,
+                    "dellRecommended": false,
+                    "highestCapacity": true,
+                    "fastestSpeed": false
+                }
+            ]
+        },
+        {
+            "id": "raid",
+            "name": "RAID Configuration",
+            "description": "RAID (Redundant Array of Independent Disks) is a data storage technology that combines multiple disk drives into a single logical unit to improve performance, redundancy, or both. There are several different RAID configurations, each with its own advantages and disadvantages.",
+            "options": [
+                {
+                    "id": "raid1",
+                    "name": "C1, No RAID for HDDs/SSDs (Mixed Drive Types Allowed)",
+                    "description": "Drives operate independently without RAID, offering flexibility for mixed types, speeds, and capacities. Useful when drives serve distinct roles, but lacks redundancy.",
+                    "technicalSpecifications": {
+                        "raidLevel": "None",
+                        "driveSupport": "Mixed Types"
+                    },
+                    "useCaseExamples": [
+                        "Individual drive access needs",
+                        "Non-redundant storage setups",
+                        "Development servers"
+                    ],
+                    "proactiveGuidance": [
+                        "No redundancy; plan for backups",
+                        "Compatible with all chassis",
+                        "Monitor drive health individually"
+                    ],
+                    "price": 0,
+                    "dellRecommended": true,
+                    "highestCapacity": false,
+                    "fastestSpeed": false
+                },
+                {
+                    "id": "raid2",
+                    "name": "C2, RAID 0 for HDDs or SSDs (Matching Type/Speed/Capacity)",
+                    "description": "Stripes data across drives for faster read/write speeds, requiring identical drives. Offers no redundancy; a single drive failure loses all data. Best for speed-critical, non-critical data.",
+                    "technicalSpecifications": {
+                        "raidLevel": "0",
+                        "driveSupport": "Matching Types"
+                    },
+                    "useCaseExamples": [
+                        "High-speed temporary storage",
+                        "Performance-critical applications",
+                        "Caching layers"
+                    ],
+                    "proactiveGuidance": [
+                        "Requires identical drives",
+                        "High data loss risk on failure; backup critical data",
+                        "Ensure controller supports RAID 0"
+                    ],
+                    "price": 0,
+                    "dellRecommended": false,
+                    "highestCapacity": false,
+                    "fastestSpeed": false
+                },
+                {
+                    "id": "raid3",
+                    "name": "C3, RAID 1 for 2 HDDs or SSDs (Matching Type/Speed/Capacity)",
+                    "description": "Provides data mirroring across two identical drives for redundancy. If one drive fails, the other continues to operate, ensuring data protection. Suitable for critical data storage where reliability is more important than capacity.",
+                    "technicalSpecifications": {
+                        "raidLevel": "1",
+                        "driveSupport": "2 Matching Drives"
+                    },
+                    "useCaseExamples": [
+                        "Boot drives",
+                        "Small critical data stores",
+                        "Environments requiring high availability"
+                    ],
+                    "proactiveGuidance": [
+                        "Ensure both drives are identical",
+                        "Monitor drive health for early failure detection",
+                        "Consider hot spares for additional redundancy"
+                    ],
+                    "price": 0,
+                    "dellRecommended": false,
+                    "highestCapacity": false,
+                    "fastestSpeed": false
+                },
+                {
+                    "id": "raid4",
+                    "name": "C4, RAID 5 for 3 or more HDDs or SSDs (Matching Type/Speed/Capacity)",
+                    "description": "Stripes data with parity across three or more identical drives, offering a balance of performance and redundancy. Provides fault tolerance for a single drive failure and is efficient for read-heavy workloads.",
+                    "technicalSpecifications": {
+                        "raidLevel": "5",
+                        "driveSupport": "3+ Matching Drives"
+                    },
+                    "useCaseExamples": [
+                        "File servers",
+                        "Application storage",
+                        "Archival systems"
+                    ],
+                    "proactiveGuidance": [
+                        "Ensure all drives are identical",
+                        "Consider the impact of parity calculations on write performance",
+                        "Monitor rebuild times for large arrays"
+                    ],
+                    "price": 0,
+                    "dellRecommended": false,
+                    "highestCapacity": false,
+                    "fastestSpeed": false
+                },
+                {
+                    "id": "raid5",
+                    "name": "C7, Unconfigured RAID for HDDs or SSDs (Mixed Drive Types Allowed)",
+                    "description": "The RAID controller is installed but not configured, allowing for flexibility in setting up RAID levels later. Supports mixed drive types, making it suitable for environments where storage needs are not yet defined.",
+                    "technicalSpecifications": {
+                        "raidLevel": "Unconfigured",
+                        "driveSupport": "Mixed Types"
+                    },
+                    "useCaseExamples": [
+                        "Initial server deployments",
+                        "Environments with evolving storage needs",
+                        "Testing and development"
+                    ],
+                    "proactiveGuidance": [
+                        "Configure RAID before deploying critical data",
+                        "Ensure compatibility with chosen drives",
+                        "Plan for future RAID setup based on workload"
+                    ],
+                    "price": 0,
+                    "dellRecommended": false,
+                    "highestCapacity": true,
+                    "fastestSpeed": false
+                }
+            ]
+        },
+        {
+            "id": "storage",
+            "name": "Storage",
+            "description": "Storage refers to the physical devices used to store data on a computer, such as hard drives, solid-state drives (SSDs), and optical drives. The storage capacity and speed of a computer's storage devices can have a significant impact on the performance and usability of the system.",
+            "options": [
+                {
+                    "id": "storage1",
+                    "name": "800GB SSD SAS, Mixed Use, up to 24Gbps 512e 2.5 Hot Plug, AG Drive, 3DWPD",
+                    "description": "An 800GB SAS SSD for mixed-use workloads, balancing read/write performance with 3 DWPD endurance. Its 24Gbps interface and hot-plug design suit databases or virtualization with minimal downtime.",
+                    "technicalSpecifications": {
+                        "capacity": "800GB",
+                        "interface": "SAS 24Gbps",
+                        "endurance": "3DWPD",
+                        "formFactor": "2.5\""
+                    },
+                    "useCaseExamples": [
+                        "Database storage",
+                        "Virtual machine hosting",
+                        "Transactional systems"
+                    ],
+                    "proactiveGuidance": [
+                        "Ensure chassis supports SAS",
+                        "Consider RAID for data protection",
+                        "Verify controller compatibility"
+                    ],
+                    "price": 2020.81,
+                    "dellRecommended": true,
+                    "highestCapacity": false,
+                    "fastestSpeed": false
+                },
+                {
+                    "id": "storage2",
+                    "name": "1.6TB SSD SAS Mixed Use up to 24Gbps 512e 2.5in Hot-Plug 3DWPD , AG Drive",
+                    "description": "A 1.6TB SAS SSD designed for mixed-use workloads, offering double the capacity of the 800GB option with the same 3 DWPD endurance. Ideal for larger datasets or more demanding applications requiring high performance and reliability.",
+                    "technicalSpecifications": {
+                        "capacity": "1.6TB",
+                        "interface": "SAS 24Gbps",
+                        "endurance": "3DWPD",
+                        "formFactor": "2.5\""
+                    },
+                    "useCaseExamples": [
+                        "Large databases",
+                        "Virtualization with high storage demands",
+                        "Enterprise applications"
+                    ],
+                    "proactiveGuidance": [
+                        "Ensure sufficient power and cooling for larger drives",
+                        "Verify RAID configuration supports larger capacity",
+                        "Check compatibility with storage controller"
+                    ],
+                    "price": 3868.14,
+                    "dellRecommended": false,
+                    "highestCapacity": false,
+                    "fastestSpeed": false
+                },
+                {
+                    "id": "storage3",
+                    "name": "1.92TB SSD SAS, Read Intensive, up to 24Gbps 512e 2.5in Hot-Plug, AG Drive",
+                    "description": "A 1.92TB SAS SSD optimized for read-intensive workloads, offering high capacity with lower endurance (typically 1 DWPD). Suitable for applications with infrequent writes, such as content delivery or data warehousing.",
+                    "technicalSpecifications": {
+                        "capacity": "1.92TB",
+                        "interface": "SAS 24Gbps",
+                        "endurance": "1DWPD",
+                        "formFactor": "2.5\""
+                    },
+                    "useCaseExamples": [
+                        "Web servers",
+                        "Content delivery networks",
+                        "Data warehousing"
+                    ],
+                    "proactiveGuidance": [
+                        "Match drive endurance to workload write frequency",
+                        "Ensure RAID setup aligns with read-heavy use",
+                        "Verify controller supports read-intensive drives"
+                    ],
+                    "price": 3116.14,
+                    "dellRecommended": false,
+                    "highestCapacity": true,
+                    "fastestSpeed": false
+                }
+            ]
+        }
+    ],
+    "defaultConfigurationState": [
+        {
+            "module": "Trusted Platform Module",
+            "moduleId": "tpm",
+            "selectedOptionId": "tpm1",
+            "selectedOption": "Trusted Platform Module 2.0 V5",
+            "rationale": "Essential for hardware-based security, this option protects sensitive data and ensures system integrity through features like secure boot and disk encryption, making it a critical default for most server environments requiring compliance and protection against cyber threats.",
+            "defaultState": "recommended"
+        },
+        {
+            "module": "Chassis",
+            "moduleId": "chassis",
+            "selectedOptionId": "chassis5",
+            "selectedOption": "2.5\" Chassis with up to 8 SAS/SATA Drives, Front PERC 12",
+            "rationale": "This versatile chassis supports both SAS and SATA drives with an advanced PERC 12 RAID controller, offering flexibility for various storage needs and hardware RAID capabilities for data redundancy, making it ideal for general-purpose enterprise use.",
+            "defaultState": "recommended"
+        },
+        {
+            "module": "Processor",
+            "moduleId": "processor",
+            "selectedOptionId": "processor4",
+            "selectedOption": "Intel® Xeon® Gold 5418Y 2G, 24C/48T, 16GT/s, 45M Cache, Turbo, HT (185W) DDR5-4400",
+            "rationale": "With 24 cores and 48 threads, this processor provides a strong balance of performance and cost, suitable for a wide range of workloads such as web hosting, application servers, and medium-sized databases, without the excessive power demands of higher-end options.",
+            "defaultState": "recommended"
+        },
+        {
+            "module": "Processor Thermal Configuration",
+            "moduleId": "processorThermalConfig",
+            "selectedOptionId": "ptcon1",
+            "selectedOption": "Heatsink for 2 CPU Configuration",
+            "rationale": "This cooling solution is adequate for the selected processor’s 185W TDP, as it supports up to 200W per CPU, offering reliable performance for general-purpose servers without the complexity or cost of liquid cooling.",
+            "defaultState": "recommended"
+        },
+        {
+            "module": "Memory",
+            "moduleId": "memory",
+            "selectedOptionId": "memory3",
+            "selectedOption": "64GB RDIMM, 5600MT/s, Dual Rank",
+            "rationale": "This 64GB RDIMM provides a good balance of capacity and performance for most enterprise workloads, such as virtualization, databases, and application hosting. Its dual-rank configuration and 5600MT/s speed ensure efficient memory access and scalability.",
+            "defaultState": "recommended"
+        },
+        {
+            "module": "RAID Configuration",
+            "moduleId": "raid",
+            "selectedOptionId": "raid1",
+            "selectedOption": "C1, No RAID for HDDs/SSDs (Mixed Drive Types Allowed)",
+            "rationale": "This option allows drives to operate independently, providing flexibility to configure RAID levels (e.g., RAID 1 for redundancy) later using the PERC 12 controller, based on specific workload requirements.",
+            "defaultState": "recommended"
+        },
+        {
+            "module": "Storage",
+            "moduleId": "storage",
+            "selectedOptionId": "storage1",
+            "selectedOption": "800GB SSD SAS, Mixed Use, up to 24Gbps 512e 2.5 Hot Plug, AG Drive, 3DWPD",
+            "rationale": "Two 800GB SAS SSDs provide high performance and endurance for mixed workloads like databases and virtualization. This setup allows for potential RAID 1 configuration for redundancy, ensuring data protection and minimal downtime.",
+            "defaultState": "recommended"
+        }
+    ],
+    "compatibilityErrors": [
+        {
+            "errorCode": "3001",
+            "incompatibleCombination": [
+                {"moduleId": "processor", "optionId": "processor1"},
+                {"moduleId": "processorThermalConfig", "optionId": "ptcon1"}
+            ],
+            "explanation": "The Intel® Xeon® Platinum 8452Y processor has a Thermal Design Power (TDP) of 300W, indicating the amount of heat it generates under maximum load. The standard 'Heatsink for 2 CPU Configuration' is designed to dissipate heat for processors with a TDP of up to 200W per CPU. When paired with a 300W processor, this heatsink cannot effectively remove the excess heat, leading to overheating. Overheating can trigger thermal throttling—where the processor reduces its speed to lower its temperature—resulting in significant performance drops. In severe cases, prolonged overheating could damage the CPU or other components. This mismatch occurs because high-performance processors like the Platinum 8452Y, with 36 cores and a high turbo frequency, demand advanced cooling solutions to operate reliably, especially in dual-CPU setups where heat dissipation needs are doubled.",
+            "resolution": "To address this incompatibility, replace the standard heatsink with a cooling solution rated for at least 300W TDP per CPU.",
+            "suggestOptions": [
+                {"moduleId": "processorThermalConfig", "optionId": "ptcon2"},
+                {"moduleId": "processorThermalConfig", "optionId": "ptcon4"}
+            ]
+        },
+        {
+            "errorCode": "3002",
+            "incompatibleCombination": [
+                {"moduleId": "chassis", "optionId": "chassis1"},
+                {"moduleId": "raid", "optionId": "raid2"}
+            ],
+            "explanation": "The '2.5\" Chassis with up to 6 NVMe Direct Drives' uses direct-attached NVMe drives, which connect directly to the processor via PCIe lanes and bypass traditional RAID controllers. RAID 0, which stripes data across drives for performance, requires a hardware or software RAID controller to manage the array. Since direct-attached NVMe drives lack a central controller, RAID 0 cannot be configured, potentially leading to system instability or data loss if attempted. This incompatibility arises because direct-attached NVMe drives prioritize low latency and high performance over traditional RAID functionality.",
+            "resolution": "To use RAID 0, select a chassis that includes a hardware RAID controller, such as one designed for NVMe or SAS/SATA drives with a RAID-capable PERC.",
+            "suggestOptions": [
+                {"moduleId": "chassis", "optionId": "chassis2"},
+                {"moduleId": "chassis", "optionId": "chassis5"}
+            ]
+        },
+        {
+            "errorCode": "3003",
+            "incompatibleCombination": [
+                {"moduleId": "processor", "optionId": "processor5"},
+                {"moduleId": "memory", "optionId": "memory4"}
+            ],
+            "explanation": "The Intel® Xeon® Silver 4509Y processor supports DDR5 memory speeds up to 4400MT/s. The '128GB RDIMM, 5600MT/s, Dual Rank x4' memory module operates at 5600MT/s, exceeding the processor’s maximum supported speed. As a result, the memory will be downclocked to 4400MT/s, eliminating the performance advantage of the faster memory. In some cases, using unsupported memory speeds may also cause system instability or failure to boot. This mismatch occurs because high-speed memory is intended for processors with greater memory bandwidth capabilities, such as higher-tier Xeon models.",
+            "resolution": "Select a memory module that aligns with the processor’s supported speed, or upgrade to a processor that supports 5600MT/s memory.",
+            "suggestOptions": [
+                {"moduleId": "memory", "optionId": "memory3"},
+                {"moduleId": "processor", "optionId": "processor1"}
+            ]
+        },
+        {
+            "errorCode": "3005",
+            "incompatibleCombination": [
+                {"moduleId": "raid", "optionId": "raid4"},
+                {"moduleId": "storage", "optionId": "storage3"}
+            ],
+            "explanation": "RAID 5 requires a minimum of three drives to stripe data with parity for redundancy and performance. The configuration includes only one drive, '1.92TB SSD SAS, Read Intensive, up to 24Gbps 512e 2.5in Hot-Plug, AG Drive', which is insufficient to create a RAID 5 array. Attempting this setup would prevent the RAID configuration from initializing, leaving the storage unusable in RAID mode. This issue occurs because RAID 5 is designed for multi-drive environments requiring fault tolerance.",
+            "resolution": "Add at least two more compatible drives to enable RAID 5, or select a RAID level that supports a single drive, such as RAID 0.",
+            "suggestOptions": [
+                {"moduleId": "raid", "optionId": "raid2"},
+                {"moduleId": "storage", "optionId": "storage1"}
+            ]
+        }
+    ],
+    "optionRecommender": {
+        "modules": [
+            {
+                "moduleId": "memory",
+                "defaultRecommendations": ["memory3"],
+                "conditionalRecommendations": [
+                    {
+                        "conditions": [{"moduleId": "processor", "optionId": "processor1"}],
+                        "recommendedOptions": ["memory4"]
+                    },
+                    {
+                        "conditions": [{"moduleId": "processor", "optionId": "processor2"}],
+                        "recommendedOptions": ["memory4"]
+                    },
+                    {
+                        "conditions": [{"moduleId": "processor", "optionId": "processor5"}],
+                        "recommendedOptions": ["memory1", "memory2"]
+                    }
+                ]
+            },
+            {
+                "moduleId": "processorThermalConfig",
+                "defaultRecommendations": ["ptcon1"],
+                "conditionalRecommendations": [
+                    {
+                        "conditions": [{"moduleId": "processor", "optionId": "processor1"}],
+                        "recommendedOptions": ["ptcon2", "ptcon4"]
+                    },
+                    {
+                        "conditions": [{"moduleId": "processor", "optionId": "processor2"}],
+                        "recommendedOptions": ["ptcon2", "ptcon4"]
+                    }
+                ]
+            },
+            {
+                "moduleId": "storage",
+                "defaultRecommendations": ["storage1"],
+                "conditionalRecommendations": [
+                    {
+                        "conditions": [{"moduleId": "chassis", "optionId": "chassis4"}],
+                        "recommendedOptions": ["storage1"]
+                    },
+                    {
+                        "conditions": [{"moduleId": "chassis", "optionId": "chassis5"}],
+                        "recommendedOptions": ["storage1"]
+                    }
+                ]
+            }
+        ]
+    }
+}
