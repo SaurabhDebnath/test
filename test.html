@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Server Configurator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa;
+            color: #212529;
+        }
+
+        .header {
+            background-color: #fff;
+            color: #212529;
+            padding: 20px;
+            text-align: center;
+            border-bottom: 1px solid #dee2e6;
+        }
+
+        .streaming-container {
+            margin-left: 20px;
+        }
+
+        .streaming-text {
+            font-size: 16px;
+            -webkit-text-fill-color: transparent;
+            color: transparent;
+            display: flex;
+            align-items: center;
+            /* justify-content: center; */
+            background: linear-gradient(94.41deg, rgb(0, 99, 184), rgb(127, 35, 79), rgb(64, 21, 92)) text;
+        }
+
+        .streaming-text .arrow {
+            display: none;
+            margin-left: 10px;
+            font-size: 16px;
+            animation: bounce 2s infinite;
+            background: linear-gradient(94.41deg, rgb(0, 99, 184), rgb(127, 35, 79), rgb(64, 21, 92)) text;
+            color: transparent;
+            -webkit-text-fill-color: transparent;
+        }
+
+        @keyframes bounce {
+
+            0%,
+            100% {
+                transform: translateX(0);
+            }
+
+            50% {
+                transform: translateX(10px);
+            }
+        }
+
+        .microchat-container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+
+        .product-info {
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+        }
+
+        .chat-panel {
+            max-width: 1200px;
+            background-color: #fff;
+            border: 2px solid transparent;
+            border-radius: 8px;
+            margin: 20px auto;
+            overflow: hidden;
+            height: 0;
+            transition: height 0.5s ease;
+            position: relative;
+        }
+
+        .chat-panel.open {
+            height: 200px;
+        }
+
+        .chat-panel::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            border-radius: 8px;
+            padding: 2px;
+            background: linear-gradient(94.41deg, rgb(0, 99, 184), rgb(127, 35, 79), rgb(64, 21, 92));
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .chat-panel>* {
+            position: relative;
+            z-index: 2;
+        }
+
+        .chat-body {
+            padding: 10px;
+            overflow-y: auto;
+        }
+
+        .chat-footer {
+            padding: 10px;
+            border-top: 1px solid #dee2e6;
+        }
+
+        .chat-footer input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #dee2e6;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .chat-body input {
+            width: 95%;
+            display: block;
+            margin: 10px auto 0 auto;
+            padding: 10px;
+            border: 1px solid #dee2e6;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <h1>Server Configurator</h1>
+    </div>
+
+    <div class="microchat-container">
+        <div class="streaming-container">
+            <div class="streaming-text" id="streamingText">
+                <span id="streamingContent"></span>
+                <span class="toggle-arrow" id="toggleArrow"
+                    style="margin-left:10px; font-size:16px; cursor:pointer; display:none;">&#8595;</span>
+            </div>
+        </div>
+        <div class="chat-panel" id="chatPanel"
+            style="height:0; transition:height 1s cubic-bezier(.4,2,.6,1); overflow:hidden; margin-bottom:20px;">
+            <div class="chat-body" style="padding:10px;">
+                <input id="chatInput" placeholder="Type here..." />
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const text = "Answer a few quick questions and we’ll find the server that’s just right for you — click here to begin!";
+        const streamingContent = document.getElementById('streamingContent');
+        const arrow = document.getElementById('toggleArrow');
+        const chatPanel = document.getElementById('chatPanel');
+        let charIndex = 0;
+        let panelOpen = false;
+
+        // Stream text character by character
+        function streamText() {
+            if (charIndex < text.length) {
+                streamingContent.textContent += text.charAt(charIndex);
+                charIndex++;
+                setTimeout(streamText, 25);
+            } else {
+                arrow.style.display = 'inline-block';
+            }
+        }
+
+        // Toggle chat panel open/close
+        arrow.onclick = function () {
+            panelOpen = !panelOpen;
+            if (panelOpen) {
+                chatPanel.style.height = "300px";
+                arrow.innerHTML = "&#8593;"; // Up arrow
+            } else {
+                chatPanel.style.height = "0";
+                arrow.innerHTML = "&#8595;"; // Down arrow
+            }
+        };
+
+        // Start streaming text after the page loads
+        window.addEventListener('load', () => {
+            setTimeout(streamText, 500);
+        });
+    </script>
+</body>
+
+</html>
