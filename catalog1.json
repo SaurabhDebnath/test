@@ -1,0 +1,444 @@
+[
+    {
+        "name": "PowerEdge R360",
+        "description": "The Dell PowerEdge R360 is a single processor rack server designed for businesses seeking affordable enterprise features, addressing evolving compute demands. Ideal for productivity and data-intensive applications, it supports small to mid-sized businesses, ROBO/Near-edge, collaboration, sharing, database support, and management. It features the latest Intel® Xeon® 6300 or E-2400 series processors (up to 8 cores) or Intel® Pentium® G7400/G7400T (2 cores), 4400 MT/s DDR5, NVMe BOSS-N1 for reduced latency, and energy-efficient design with hot-plug storage and air cooling. Supports NVIDIA A2 GPU for video/audio computing, cost-effective for retail, manufacturing, logistics. Offers cyber-resilient architecture with zero trust IT, integrated security (e.g., MFA, role-based access), and sustainability with recycled materials and energy efficiency. Managed via Dell OpenManage portfolio for efficiency and automation.",
+        "tech_spec_summary": {
+            "Processor": "Intel Xeon (up to 8 cores)",
+            "Memory": "Up to 128 GB DDR5",
+            "Storage Options": "Up to 4 x 3.5-inch or 8 x 2.5-inch drive bays",
+            "Power Supply": "Redundant with hot-swap",
+            "Management": "iDRAC9",
+            "Connectivity": "2 x 1 GbE LOM, USB, VGA",
+            "GPU Support": "NVIDIA A2",
+            "Form Factor": "1U Rack",
+            "Security": "TPM 2.0, Secure Boot",
+            "Special Features": "NVMe BOSS-N1, hot-plug storage, air cooling",
+            "Recommended Use Cases": "SMB, ROBO/Near-edge, collaboration, sharing, database support, management"
+        }
+    },
+    {
+        "name": "PowerEdge T160",
+        "description": "The Dell PowerEdge T160 is a compact tower server designed for SMB and Near-Edge customers, featuring a space-saving sub-17-Liter chassis, office-friendly acoustics, and a filter bezel for dust and grease protection, ensuring efficient airflow and performance. It supports growing businesses with applications like mailing, messaging, collaboration, sharing, and Near-Edge deployments. It incorporates recycled materials for sustainability, reduces chemical usage with unpainted steel, and offers cyber-resilient architecture with security features like Multi-Factor Authentication and role-based access controls. Managed by Dell OpenManage systems for efficiency and autonomous collaboration.",
+        "tech_spec_summary": {
+            "Processor": "Intel Xeon (up to 8 cores)",
+            "Memory": "Up to 128 GB DDR5",
+            "Storage Options": "Up to 3 x 3.5-inch or 3 x 3.5-inch + 2 x 2.5-inch drive bays",
+            "Power Supply": "Cabled",
+            "Management": "iDRAC9",
+            "Connectivity": "Multiple USB and Ethernet ports",
+            "GPU Support": "Not specified",
+            "Form Factor": "Tower",
+            "Security": "TPM 2.0, Secure Boot",
+            "Special Features": "Office-friendly acoustics, filter bezel",
+            "Recommended Use Cases": "SMB, Near-Edge, mailing, messaging, collaboration, sharing"
+        }
+    },
+    {
+        "name": "PowerEdge R260",
+        "description": "The PowerEdge R260 is a newly designed short-depth 1-socket rack server tailored for SMB and Near-Edge customers, offering power and flexibility for environments like warehouses, retail offices, or desks/shelves. It features a 17-inch chassis, filter bezel for dust/grease protection, and enterprise-level capabilities with affordable pricing. It supports Near-Edge applications, collaboration, sharing, mailing, and messaging, with a focus on cyber resilience, zero trust IT, and sustainability through recycled materials and energy efficiency. Services include Dell Technologies Services (Consulting, ProDeploy, ProSupport, Data Migration) available in 170 countries.",
+        "tech_spec_summary": {
+            "Processor": "Intel Xeon (up to 8 cores)",
+            "Memory": "Up to 128 GB DDR5",
+            "Storage Options": "Up to 2 x 3.5-inch or 6 x 2.5-inch drive bays",
+            "Power Supply": "Non-redundant",
+            "Management": "iDRAC9",
+            "Connectivity": "2 x 1 GbE LOM, USB, VGA",
+            "GPU Support": "Not specified",
+            "Form Factor": "1U Rack",
+            "Security": "TPM 2.0, Secure Boot",
+            "Special Features": "17-inch chassis, filter bezel",
+            "Recommended Use Cases": "SMB, Near-Edge, collaboration, sharing, mailing, messaging"
+        }
+    },
+    {
+        "name": "PowerEdge T560",
+        "description": "The Dell PowerEdge T560 is an enterprise-class tower server powered by 4th Generation Intel Xeon Scalable processors, offering advanced technologies with accelerators. It is ideal for traditional corporate IT, virtualization, database and analytics, and AI/ML inferencing, delivering robust compute performance.",
+        "tech_spec_summary": {
+            "Processor": "Up to two Intel Xeon Scalable (4th/5th Gen, up to 32/28 cores)",
+            "Memory": "Up to 1 TB DDR5",
+            "Storage Options": "Up to 12 x 3.5-inch and 24 x 2.5-inch drives (HDD, SAS4 SSD, NVMe)",
+            "Power Supply": "Not specified",
+            "Management": "iDRAC9",
+            "Connectivity": "Not specified",
+            "GPU Support": "Up to 6 GPUs",
+            "Form Factor": "Tower",
+            "Security": "TPM 2.0, Secure Boot",
+            "Special Features": "Not specified",
+            "Recommended Use Cases": "Corporate IT, virtualization, database, analytics, AI/ML inferencing"
+        }
+    },
+    {
+        "name": "PowerEdge T360",
+        "description": "The Dell PowerEdge T360 is a single processor tower server designed for businesses seeking affordable enterprise features. It addresses evolving compute demands with productivity and data-intensive applications, ideal for small to mid-sized businesses, ROBO/near-edge, collaboration, sharing, and real-time database management.",
+        "tech_spec_summary": {
+            "Processor": "Intel Xeon (up to 8 cores) or Pentium (up to 2 cores)",
+            "Memory": "Up to 128 GB DDR5",
+            "Storage Options": "Up to 8 x 3.5-inch or 8 x 2.5-inch drives (SAS/SATA, NVMe)",
+            "Power Supply": "Not specified",
+            "Management": "Not specified",
+            "Connectivity": "Not specified",
+            "GPU Support": "NVIDIA A2",
+            "Form Factor": "Tower",
+            "Security": "Not specified",
+            "Special Features": "NVMe support, RAID controllers",
+            "Recommended Use Cases": "SMB, ROBO/Near-edge, collaboration, sharing, database management"
+        }
+    },
+    {
+        "name": "PowerEdge R7525",
+        "description": "The Dell EMC PowerEdge R7525 is a highly adaptable 2U rack server delivering powerful performance and flexible configurations. It is ideal for traditional and emerging workloads such as Data Analytics, All Flash SDS, and VDI.",
+        "tech_spec_summary": {
+            "Processor": "Two AMD EPYC (2nd/3rd Gen, up to 64 cores each)",
+            "Memory": "Up to 4 TB DDR4",
+            "Storage Options": "Up to 24 x 2.5-inch or 12 x 3.5-inch drives (NVMe, SAS/SATA)",
+            "Power Supply": "Not specified",
+            "Management": "iDRAC9",
+            "Connectivity": "Not specified",
+            "GPU Support": "Up to 3 x 300W DW or 6 x 75W SW GPUs",
+            "Form Factor": "2U Rack",
+            "Security": "TPM 2.0, Secure Boot",
+            "Special Features": "Eight PCIe Gen4 slots",
+            "Recommended Use Cases": "Data Analytics, All Flash SDS, VDI"
+        }
+    },
+    {
+        "name": "PowerEdge R660",
+        "description": "The Dell PowerEdge R660 is a 1U, two-socket rack server designed for performance and versatility, optimizing demanding workloads like dense database analytics and high-density virtualization.",
+        "tech_spec_summary": {
+            "Processor": "Up to two Intel Xeon Scalable (4th/5th Gen, up to 64 cores)",
+            "Memory": "Up to 8 TB DDR5",
+            "Storage Options": "Up to 10 x 2.5-inch SAS/SATA/NVMe or 16 x EDSFF E3.S Gen5 NVMe",
+            "Power Supply": "700W to 1800W, hot-swap redundant",
+            "Management": "iDRAC9",
+            "Connectivity": "Not specified",
+            "GPU Support": "Up to 3 x 75W SW GPUs",
+            "Form Factor": "1U Rack",
+            "Security": "Not specified",
+            "Special Features": "Optional Direct Liquid Cooling",
+            "Recommended Use Cases": "Database analytics, high-density virtualization"
+        }
+    },
+    {
+        "name": "PowerEdge R570",
+        "description": "The Dell PowerEdge R570 is a powerful 2U, single-socket rack server designed for high performance and energy efficiency, ideal for large datacenters. It supports workloads like virtualization, medium-density VMs, scale-out databases, VDI, and software-defined storage.",
+        "tech_spec_summary": {
+            "Processor": "Intel Xeon 6 (E-core up to 144 cores or P-core up to 86 cores)",
+            "Memory": "Up to 4 TB DDR5",
+            "Storage Options": "Up to 24 x 2.5-inch SAS4/SATA or 4 x EDSFF E3.S Gen5 NVMe",
+            "Power Supply": "Not specified",
+            "Management": "Not specified",
+            "Connectivity": "Not specified",
+            "GPU Support": "Up to 3 x 400W DW or 4 x 75W SW GPUs",
+            "Form Factor": "2U Rack",
+            "Security": "Not specified",
+            "Special Features": "Six PCIe Gen5 slots",
+            "Recommended Use Cases": "Virtualization, VMs, databases, VDI, software-defined storage"
+        }
+    },
+    {
+        "name": "PowerEdge R6525",
+        "description": "The Dell EMC PowerEdge R6525 is a dual-socket 1U rack server designed for high-performance dense-computing environments, supporting traditional and emerging workloads such as HPC, VDI, and virtualization.",
+        "tech_spec_summary": {
+            "Processor": "Dual AMD EPYC (up to 64 cores each)",
+            "Memory": "Up to 4 TB DDR4",
+            "Storage Options": "Up to 12 hot-plug drive bays",
+            "Power Supply": "Redundant platinum or titanium",
+            "Management": "iDRAC9",
+            "Connectivity": "2 x 1 GbE LOM",
+            "GPU Support": "Up to 2 SW GPUs",
+            "Form Factor": "1U Rack",
+            "Security": "Not specified",
+            "Special Features": "Not specified",
+            "Recommended Use Cases": "HPC, VDI, virtualization"
+        }
+    },
+    {
+        "name": "PowerEdge R550",
+        "description": "The Dell EMC PowerEdge R550 is a 2U rack server designed for high-performance computing, supporting up to two 3rd Generation Intel Xeon Scalable processors with up to 24 cores each.",
+        "tech_spec_summary": {
+            "Processor": "Up to two Intel Xeon Scalable (3rd Gen, up to 24 cores each)",
+            "Memory": "Up to 1 TB DDR4",
+            "Storage Options": "Up to 16 x 2.5-inch drive bays",
+            "Power Supply": "600W to 1100W",
+            "Management": "iDRAC9",
+            "Connectivity": "2 x 1 GbE LOM with OCP 3.0 option",
+            "GPU Support": "Not specified",
+            "Form Factor": "2U Rack",
+            "Security": "Not specified",
+            "Special Features": "Not specified",
+            "Recommended Use Cases": "High-performance computing"
+        }
+    },
+    {
+        "name": "PowerEdge R7715",
+        "description": "The PowerEdge R7715 is a 2U rack server featuring a single 5th Generation AMD EPYC 9005 Series processor with up to 160 cores, designed for high-density computing tasks.",
+        "tech_spec_summary": {
+            "Processor": "AMD EPYC 9005 (5th Gen, up to 160 cores)",
+            "Memory": "Up to 6 TB DDR5",
+            "Storage Options": "Up to 40 EDSFF E3.S drive bays",
+            "Power Supply": "Up to 3200W",
+            "Management": "iDRAC10",
+            "Connectivity": "Various OCP network options",
+            "GPU Support": "Up to 3 DW GPUs",
+            "Form Factor": "2U Rack",
+            "Security": "Not specified",
+            "Special Features": "Eight Gen5 PCIe slots",
+            "Recommended Use Cases": "High-density computing"
+        }
+    },
+    {
+        "name": "PowerEdge R670",
+        "description": "The Dell PowerEdge R670 is a 1U rack server equipped with two Intel Xeon 6 Processors, each supporting up to 144 E-cores or 86 P-cores, ideal for virtualization, cloud-native applications, and hyperscale workloads.",
+        "tech_spec_summary": {
+            "Processor": "Two Intel Xeon 6 (up to 144 E-cores or 86 P-cores)",
+            "Memory": "Up to 8 TB DDR5",
+            "Storage Options": "Up to 20 EDSFF E3.S NVMe drives",
+            "Power Supply": "800W to 1800W",
+            "Management": "iDRAC",
+            "Connectivity": "Up to 4 OCP NIC 3.0 cards",
+            "GPU Support": "Up to 3 SW GPUs",
+            "Form Factor": "1U Rack",
+            "Security": "Not specified",
+            "Special Features": "Multiple PCIe slots",
+            "Recommended Use Cases": "Virtualization, cloud-native, hyperscale workloads"
+        }
+    },
+    {
+        "name": "PowerEdge R750",
+        "description": "The Dell PowerEdge R750 is a full-featured enterprise server in a 2U rack form factor, supporting up to two 3rd Generation Intel Xeon Scalable processors with up to 40 cores each. It is designed for demanding workloads such as database and analytics, HPC, and AI/ML environments.",
+        "tech_spec_summary": {
+            "Processor": "Up to two Intel Xeon Scalable (3rd Gen, up to 40 cores each)",
+            "Memory": "Up to 8 TB DDR4",
+            "Storage Options": "Up to 24 NVMe drives",
+            "Power Supply": "700W to 2800W",
+            "Management": "iDRAC9",
+            "Connectivity": "Not specified",
+            "GPU Support": "Up to 2 DW GPUs",
+            "Form Factor": "2U Rack",
+            "Security": "Not specified",
+            "Special Features": "Air and optional liquid cooling, eight PCIe Gen4 slots",
+            "Recommended Use Cases": "Database, analytics, HPC, AI/ML"
+        }
+    },
+    {
+        "name": "PowerEdge XR11",
+        "description": "Compact, ruggedized, 1U server certified for edge conditions like telecommunications, military, retail, restaurants. Built for challenging environments, marine compliant, 16 inches/400 mm deep. Offers no-compromise capabilities for space-constrained, rugged conditions. Innovates at scale with emerging workloads, boosts edge services, copes with challenges (dust, extreme temperatures, shock, vibration), adds versatility (front/rear port options, reverse air flow), improves longevity, and includes built-in protection (platform security, cyber resilience, Secured Component Verification, Silicon Root of Trust, OpenManage Secure Enterprise Key Manager, Automatic Certificate Enrollment, iDRAC9 Telemetry, BIOS live scanning, Rapid OS recovery). Increases efficiency with OpenManage systems management (telemetry streaming, thermal management, RESTful API with Redfish, intelligent automation, change management, full-stack integration with Microsoft, VMware, ServiceNow, Ansible, etc.).",
+        "tech_spec_summary": {
+            "Processor": "Intel Xeon Scalable (3rd Gen, up to 36 cores)",
+            "Memory": "Up to 1 TB DDR4",
+            "Storage Options": "4 x 2.5-inch drive bays (up to 61.44 TB)",
+            "Power Supply": "Not specified",
+            "Management": "iDRAC9",
+            "Connectivity": "4 x 25 GbE SFP+",
+            "GPU Support": "Not specified",
+            "Form Factor": "1U Rack",
+            "Security": "TPM 2.0, Secure Boot",
+            "Special Features": "Rugged design, reverse air flow",
+            "Recommended Use Cases": "Telecommunications, military, retail, edge services"
+        }
+    },
+    {
+        "name": "PowerEdge R7625",
+        "description": "The Dell PowerEdge R7625 is a 2U, dual-socket rack server designed as the backbone of data centers, offering breakthrough performance for traditional and emerging workloads like HPC, VDI, virtualization, and data analytics. It features AMD EPYC 4th Gen processors, DDR5 memory, PCIe Gen5, and optional Direct Liquid Cooling (DLC) for efficient cooling. It supports increased virtual machine density, expandability with up to 33% more E3.S NVMe drives, and a cyber-resilient architecture for Zero Trust IT. Sustainability is enhanced with recycled materials and energy-efficient options. Services include Consulting, ProDeploy, ProSupport, and Data Migration, available across 170 locations.",
+        "tech_spec_summary": {
+            "Processor": "Up to two AMD EPYC 4th Gen (128 cores each)",
+            "Memory": "Up to 6 TB DDR5",
+            "Storage Options": "Up to 32 E3.S NVMe drives",
+            "Power Supply": "Not specified",
+            "Management": "Not specified",
+            "Connectivity": "Not specified",
+            "GPU Support": "Not specified",
+            "Form Factor": "2U Rack",
+            "Security": "Not specified",
+            "Special Features": "Optional Direct Liquid Cooling",
+            "Recommended Use Cases": "HPC, VDI, virtualization, data analytics"
+        }
+    },
+    {
+        "name": "PowerEdge XR7620",
+        "description": "Dell PowerEdge XR7620 is a short-depth 2U, 2-socket server designed for edge use cases including industrial automation, video analytics, point of sale analytics, AI inferencing, and edge point device aggregation. Purpose-built for the edge with rugged design, operating in temperatures from -5°C to 55°C, MIL 810H* and NEBS Level 3* tested. Offers easy serviceability with reversible I/O & power, short-depth (472 mm) chassis, and optional lockable smart filtered bezel for harsh environments. Provides datacenter-level compute with high performance, capacity, and reduced latency. Includes cyber resilient architecture for zero trust IT, autonomous infrastructure with Dell OpenManage™, and sustainability features for reduced carbon footprint.",
+        "tech_spec_summary": {
+            "Processor": "Two Intel Xeon Scalable (4th/5th Gen)",
+            "Memory": "Up to 2 TB DDR5",
+            "Storage Options": "Up to 8 E3.S NVMe drives",
+            "Power Supply": "Not specified",
+            "Management": "Not specified",
+            "Connectivity": "Not specified",
+            "GPU Support": "Not specified",
+            "Form Factor": "2U Rack",
+            "Security": "Not specified",
+            "Special Features": "Rugged design, wide temperature tolerance",
+            "Recommended Use Cases": "Industrial automation, video analytics, POS analytics, AI inferencing"
+        }
+    },
+    {
+        "name": "PowerEdge T550",
+        "description": "Flexible two-socket tower server for enterprise workloads outside traditional data centers. Balances expandability and performance, offers advanced technologies like accelerators. Ideal for business critical workloads, database and analytics, virtualization, AI/ML, inferencing. Office-friendly acoustics, ease of management, expandability for growth and performance. Designed with cyber-resilient architecture, security from design to retirement. Uses Dell EMC OpenManage for efficient management, telemetry streaming, thermal management, RESTful API with Redfish. Security features: cryptographically trusted booting, silicon root of trust, digitally signed firmware, system lockdown, System Erase.",
+        "tech_spec_summary": {
+            "Processor": "Up to two Intel Xeon Scalable (3rd Gen, 36 cores each)",
+            "Memory": "Up to 2 TB DDR4",
+            "Storage Options": "Up to 24 x 2.5-inch drives",
+            "Power Supply": "Not specified",
+            "Management": "Not specified",
+            "Connectivity": "Not specified",
+            "GPU Support": "Not specified",
+            "Form Factor": "5U Tower",
+            "Security": "TPM 2.0, Secure Boot",
+            "Special Features": "Office-friendly acoustics",
+            "Recommended Use Cases": "Database, analytics, virtualization, AI/ML"
+        }
+    },
+    {
+        "name": "PowerEdge XR5610",
+        "description": "All-purpose short-depth 1U server for Telecom, Defense, Retail, and edge deployments; successor to XR11 with generational enhancements; designed for high-performance compute and ruggedized deployment in a 463mm chassis; well-suited for 5G vRAN, ORAN, military, defense, retail AI, video monitoring, IoT device aggregation, PoS analytics; operates in -5°C to 55°C; MIL 810H* and NEBS Level 3* (SR3580) tested; cyber-resilient with zero trust architecture; sustainability focus with recycled materials and energy efficiency; supported by Dell Technologies Services across 170 locations.",
+        "tech_spec_summary": {
+            "Processor": "Intel Xeon Scalable (4th/5th Gen)",
+            "Memory": "Up to 1 TB DDR5",
+            "Storage Options": "Up to 4 x 2.5-inch NVMe SSDs",
+            "Power Supply": "Not specified",
+            "Management": "Not specified",
+            "Connectivity": "4 x 25 GbE",
+            "GPU Support": "Not specified",
+            "Form Factor": "1U Rack",
+            "Security": "Not specified",
+            "Special Features": "Rugged design, high networking capabilities",
+            "Recommended Use Cases": "5G vRAN, ORAN, military, retail AI, video monitoring, IoT, PoS analytics"
+        }
+    },
+    {
+        "name": "PowerEdge XR12",
+        "description": "A ruggedized, marine-compliant 2U server, 16 inches/400 mm deep, designed for challenging environments like telecommunications, military, retail, and restaurants. Features 3rd generation Intel Xeon Scalable processors with up to 36 cores, supports accelerators, DDR4, PCIe 4.0, persistent memory, and up to 6 drives (max 92 TB with 2.5-inch SATA/SAS/NVMe SSDs). Certified for telco and defense, handles dust, extreme temperatures, shock, vibration, and other environmental variants. Offers front and rear port options with reverse airflow, reducing the need for expensive retrofits or HVAC updates, built for long life to minimize downtime. Platform security includes Secured Component Verification, Silicon Root of Trust, and management enhanced with Dell EMC OpenManage systems.",
+        "tech_spec_summary": {
+            "Processor": "Intel Xeon Scalable (3rd Gen, up to 36 cores)",
+            "Memory": "Up to 1 TB DDR4",
+            "Storage Options": "6 x 2.5-inch SATA/SAS/NVMe (up to 92 TB)",
+            "Power Supply": "1400W Platinum",
+            "Management": "iDRAC9",
+            "Connectivity": "4 x 25 GbE SFP+ LOM",
+            "GPU Support": "Up to 2 x 300W DW or 2 x 75W/150W SW",
+            "Form Factor": "2U Rack",
+            "Security": "TPM 2.0, Secure Boot",
+            "Special Features": "Reverse airflow, rugged design",
+            "Recommended Use Cases": "Telecommunications, military, retail, restaurants"
+        }
+    },
+    {
+        "name": "PowerEdge R470",
+        "description": "A 1U single-socket rack server engineered for high-performance computing with optimal power efficiency and balanced performance, driving cost savings and boosting data center productivity. Maximizes rack utilization with more cores in a single socket, ideal for cloud scale web and app microservices, data services, virtualization, and scale-out database. Features one Intel Xeon 6 E-core processor with up to 144 cores or one Intel Xeon 6 P-core with up to 86 cores with R1S option. Memory: 16 DDR5 DIMM slots, RDIMM up to 4TB* max, speeds up to 6400 MT/s. Designed with sustainability, using recycled materials, Energy Star compliant, advanced cooling to reduce carbon footprint and lower operation costs, easy retirement with Dell Technologies.",
+        "tech_spec_summary": {
+            "Processor": "Intel Xeon 6 (E-core up to 144 cores or P-core up to 86 cores)",
+            "Memory": "Up to 4 TB DDR5",
+            "Storage Options": "Up to 16 x EDSFF E3.S Gen5 NVMe",
+            "Power Supply": "800W to 1500W",
+            "Management": "iDRAC",
+            "Connectivity": "1 Gb BMC Ethernet, up to 2 OCP NIC 3.0",
+            "GPU Support": "Up to 4 x 75W SW",
+            "Form Factor": "1U Rack",
+            "Security": "TPM 2.0, Secure Boot",
+            "Special Features": "Advanced cooling",
+            "Recommended Use Cases": "Cloud web, microservices, data services, virtualization, databases"
+        }
+    },
+    {
+        "name": "PowerEdge R6725",
+        "description": "Designed as the foundation of your data center, providing excellent performance, low-latency storage, and compute density in air-cooled configuration. Delivers breakthrough performance for AI, HPC, VDI, dense virtualization. Features two 5th Generation AMD EPYC 9005 Series processors, up to 192 cores. Memory: 24 DDR5 DIMM slots, RDIMM 3 TB max, speeds up to 6400 MT/s. Energy efficiency with Smart Cooling, improved heat sinks, lowers TCO, reduces energy. Security: Cyber Resilient Architecture, Silicon root of trust, MFA, role-based access, AMD SEV, SME, firmware signed, Data at Rest Encryption, TPM 2.0 FIPS, Secure Boot, others. Management: Dell OpenManage, iDRAC10, integrations with VMware, Microsoft, others, tools like IPMI, Ansible Collections. Sustainability: Recycled materials, energy efficiency, reduces carbon footprint, easy legacy retirement with Dell Technologies. Services: Comprehensive, including AI Professional Services, ProDeploy, ProSupport, across 170 locations. Availability: Expected first half 2025, second half 2025, subject to change.",
+        "tech_spec_summary": {
+            "Processor": "Two AMD EPYC 9005 (5th Gen, up to 192 cores)",
+            "Memory": "Up to 3 TB DDR5",
+            "Storage Options": "Up to 8 x 2.5-inch or 4 x 3.5-inch drives",
+            "Power Supply": "800W to 1800W",
+            "Management": "iDRAC10",
+            "Connectivity": "2 x OCP card 3.0",
+            "GPU Support": "Up to 3 x 75W SW",
+            "Form Factor": "1U Rack",
+            "Security": "TPM 2.0, Secure Boot",
+            "Special Features": "Direct Liquid Cooling option",
+            "Recommended Use Cases": "AI, HPC, VDI, dense virtualization"
+        }
+    },
+    {
+        "name": "PowerEdge R7615",
+        "description": "A 2U single-socket rack server for optimal performance per dollar, flexible, low-latency storage in air or DLC. Ideal for software-defined storage, data analytics, virtualization. Features one 4th Gen AMD EPYC 9004, up to 128 cores. Memory: 12 DDR5 DIMM, RDIMM 3 TB max, 4800 MT/s. Storage: Internal RAID PERC H965i, others, Boot BOSS-N1, External HBA355e, Software RAID S160. Drive Bays: Up to 24 x 2.5-inch, 32 x EDSFF E3.S Gen5 NVMe, max capacities. Power: 700W to 2400W, Platinum, Titanium options. Cooling: Air, optional DLC. Sustainability: Recycled materials, energy efficiency, reduces carbon footprint. Security: AMD SME, SEV, firmware signed, Data at Rest Encryption, Secure Boot, TPM 2.0 FIPS, others. Management: iDRAC9, OpenManage Enterprise, integrations with VMware, Microsoft, others.",
+        "tech_spec_summary": {
+            "Processor": "AMD EPYC 9004 (4th Gen, up to 128 cores)",
+            "Memory": "Up to 3 TB DDR5",
+            "Storage Options": "Up to 24 x 2.5-inch or 32 x EDSFF E3.S Gen5 NVMe",
+            "Power Supply": "700W to 2400W",
+            "Management": "iDRAC9",
+            "Connectivity": "2 x 1 GbE LOM",
+            "GPU Support": "Up to 3 x 300W DW or 6 x 75W SW",
+            "Form Factor": "2U Rack",
+            "Security": "TPM 2.0, Secure Boot",
+            "Special Features": "Optional DLC",
+            "Recommended Use Cases": "Software-defined storage, data analytics, virtualization"
+        }
+    },
+    {
+        "name": "PowerEdge R760xs",
+        "description": "A 2U two-socket rack server for balanced compute, flexible storage, ideal for VDI, VMs, SDS. Offers PCIe Gen 5 bandwidth, large storage. Features up to two 5th Gen Intel Xeon Scalable, up to 28 cores, or 4th Gen, up to 32 cores. Memory: 16 DDR5 DIMM, RDIMM 1.5 TB max, 5200 MT/s. Storage: Up to 12x 3.5” HDDs/SSDs (288 TB), 16x 2.5” (121.6 TB), 8x NVMe, combined options. Controllers: PERC H965i, others, Boot BOSS-N1, External HBA355e, Software S160. Cooling: Air, STD, HPR, VHP fans, up to 6 hot swappable. Security: Cyber Resilient, silicon root of trust, MFA, firmware signed, Secure Boot, TPM 2.0 FIPS, others. Management: OpenManage, iDRAC9, integrations with VMware, Microsoft, others. Sustainability: Recycled materials, energy efficiency, reduces carbon footprint. Services: Consulting, ProDeploy, ProSupport. Form Factor: 2U, Dimensions: Height 86.8 mm, Width 482 mm, Depth 707.78 mm without bezel. Power: Hot swap redundant, 1800W Titanium, others. Operating Systems: Windows Server, VMware ESXi, others. Network: 2 x 1 GbE LOM, 1 x OCP card 3.0 optional. PCIe: Up to 6 slots, configurations. GPU: 2 x 75 W SW, LP. OEM-ready: Available, visit Dell.com > Solutions > OEM Solutions. Flexible Consumption: APEX Flex on Demand, visit https://www.delltechnologies.com/en-us/payment-solutions/flexible-consumption/flex-on-demand.htm.",
+        "tech_spec_summary": {
+            "Processor": "Up to two Intel Xeon Scalable (5th Gen up to 28 cores, 4th Gen up to 32 cores)",
+            "Memory": "Up to 1.5 TB DDR5",
+            "Storage Options": "Up to 12 x 3.5-inch (288 TB) or 16 x 2.5-inch (121.6 TB), 8 x NVMe",
+            "Power Supply": "1800W Titanium, hot-swap",
+            "Management": "iDRAC9",
+            "Connectivity": "2 x 1 GbE LOM",
+            "GPU Support": "2 x 75W SW",
+            "Form Factor": "2U Rack",
+            "Security": "TPM 2.0, Secure Boot",
+            "Special Features": "PCIe Gen5 bandwidth",
+            "Recommended Use Cases": "VDI, VMs, software-defined storage"
+        }
+    },
+    {
+        "name": "PowerEdge MX760c",
+        "description": "High-performance modular compute sled with exceptional scale, designed for automation, provisioning, and deployment. Future-ready with multiple generations of compute, storage, and networking resources, easier to deploy, manage, and service. Supports AI inferencing, database analytics, dense virtualization, and containerization, improving IT efficiency. Features EDSFF for improved storage density, thermals, ease of service, and management, with built-in redundancies for less downtime. Manages workloads at chassis level and scale with OpenManage Enterprise. Air-cooled, minimizing carbon footprint, and integrates security for Zero Trust IT with lifecycle protection. Sustainability focused with recycled materials and energy efficiency options. Supports virtualization/cloud, software-defined, big data analytics, and AI inferencing. Services available across 170 countries.",
+        "tech_spec_summary": {
+            "Processor": "Up to two Intel Xeon Scalable (5th Gen, 64 cores each)",
+            "Memory": "Up to 8 TB DDR5",
+            "Storage Options": "Up to 8 x E3.S NVMe PCIe Gen 5 SSD",
+            "Power Supply": "Not specified",
+            "Management": "iDRAC9, OpenManage Enterprise",
+            "Connectivity": "Up to 100 Gb NICs",
+            "GPU Support": "Not specified",
+            "Form Factor": "Modular Sled",
+            "Security": "TPM 2.0, Secure Boot",
+            "Special Features": "EDSFF storage",
+            "Recommended Use Cases": "AI inferencing, database analytics, virtualization, containerization"
+        }
+    },
+    {
+        "name": "PowerEdge R650",
+        "description": "The Dell PowerEdge R650 is a full-featured enterprise server designed to optimize workloads performance and data center density, ideal for Database and Analytics, High-Frequency Trading, Traditional corporate IT, Virtual Desktop Infrastructure, and AI/ML or HPC environments requiring performance and GPU support in a dense 1U form factor. It is powered by 3rd Generation Intel Xeon Scalable processors, supporting 8 channels of memory per CPU, up to 32 DDR4 DIMMs @ 3200 MT/s, PCIe Gen 4, and up to 12 NVMe drives with improved air-cooling and optional Direct Liquid Cooling. It features a cyber-resilient architecture with security integrated throughout its lifecycle, including cryptographically trusted booting, silicon root of trust, digitally signed firmware, system lockdown, and System Erase for secure data wiping.",
+        "tech_spec_summary": {
+            "Processor": "Up to two Intel Xeon Scalable (3rd Gen, 40 cores each)",
+            "Memory": "Up to 8 TB DDR4",
+            "Storage Options": "Up to 12 NVMe drives",
+            "Power Supply": "800W to 1800W",
+            "Management": "iDRAC9",
+            "Connectivity": "1 GbE LOM, OCP 3.0",
+            "GPU Support": "Up to 3 x 75W GPUs",
+            "Form Factor": "1U Rack",
+            "Security": "TPM 2.0, Secure Boot",
+            "Special Features": "Optional Direct Liquid Cooling",
+            "Recommended Use Cases": "Database, analytics, high-frequency trading, VDI, AI/ML, HPC"
+        }
+    },
+    {
+        "name": "PowerEdge R760",
+        "description": "The Dell PowerEdge R760 is a 2U, two-socket rack server designed for performance and versatility, optimizing demanding workloads like AI and Machine Learning. Ideal for Mixed Workload Standardization, Database and Analytics, and Virtual Desktop Infrastructure. It offers a cyber-resilient architecture for Zero Trust IT, integrated security, and sustainability features to reduce carbon footprint.",
+        "tech_spec_summary": {
+            "Processor": "Up to two Intel Xeon Scalable (5th Gen, 64 cores each)",
+            "Memory": "Up to 8 TB DDR5",
+            "Storage Options": "Up to 24 x 2.5-inch or 16 x NVMe E3.S Gen5",
+            "Power Supply": "Not specified",
+            "Management": "iDRAC9, OpenManage Enterprise",
+            "Connectivity": "Not specified",
+            "GPU Support": "Up to 6 SW GPUs",
+            "Form Factor": "2U Rack",
+            "Security": "TPM 2.0, Secure Boot",
+            "Special Features": "Air or liquid cooling",
+            "Recommended Use Cases": "AI, machine learning, database, analytics, VDI"
+        }
+    }
+]
