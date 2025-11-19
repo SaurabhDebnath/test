@@ -2,12 +2,18 @@ using System;
 using System.Collections.Concurrent;
 using System.Diagnostics;
 using System.Linq;
-using System.Threading;
 using System.Threading.Tasks;
 using System.Threading.Tasks.Dataflow;
 
 class Program
 {
+    // Simple message type
+    class Message
+    {
+        public int Offset { get; set; }
+        public int ProcessingMs { get; set; }
+    }
+
     // Simulated "commit" coordinator per partition
     class PartitionState
     {
@@ -26,7 +32,7 @@ class Program
 
         // Generate 100 synthetic messages with offsets 0..99 and random durations (ms)
         var messages = Enumerable.Range(0, 100)
-            .Select(i => new { Offset = i, ProcessingMs = rng.Next(50, 2000) })
+            .Select(i => new Message { Offset = i, ProcessingMs = rng.Next(50, 2000) })
             .ToList();
 
         Console.WriteLine("Messages (offset -> ms) preview (first 10):");
@@ -47,7 +53,7 @@ class Program
     }
 
     static async Task RunSingleBlockApproach(
-        System.Collections.Generic.List<dynamic> messages,
+        System.Collections.Generic.List<Message> messages,
         int maxDegreeOfParallelism)
     {
         Console.WriteLine("=== Approach A: ONE ActionBlock (MaxDegreeOfParallelism = " + maxDegreeOfParallelism + ") ===\n");
@@ -61,13 +67,13 @@ class Program
             BoundedCapacity = 100 // just an example
         };
 
-        var block = new ActionBlock<dynamic>(async msg =>
+        var block = new ActionBlock<Message>(async msg =>
         {
-            var offset = (int)msg.Offset;
+            var offset = msg.Offset;
             Log("[A] Consumed", offset, sw);
 
             // Start processing
-            var processingTask = ProcessMessageAsync(offset, (int)msg.ProcessingMs, "A", sw);
+            var processingTask = ProcessMessageAsync(offset, msg.ProcessingMs, "A", sw);
 
             // Register in-flight
             state.InFlight[offset] = processingTask;
@@ -106,7 +112,7 @@ class Program
     }
 
     static async Task RunShardedBlockApproach(
-        System.Collections.Generic.List<dynamic> messages,
+        System.Collections.Generic.List<Message> messages,
         int shards)
     {
         Console.WriteLine($"=== Approach B: {shards} ActionBlocks (each MaxDegreeOfParallelism = 1) ===\n");
@@ -116,12 +122,12 @@ class Program
 
         // Create N blocks (each single-worker)
         var blocks = Enumerable.Range(0, shards)
-            .Select(i => new ActionBlock<dynamic>(async msg =>
+            .Select(i => new ActionBlock<Message>(async msg =>
             {
-                var offset = (int)msg.Offset;
+                var offset = msg.Offset;
                 Log($"[B][w{i}]", offset, sw);
 
-                var processingTask = ProcessMessageAsync(offset, (int)msg.ProcessingMs, $"B-w{i}", sw);
+                var processingTask = ProcessMessageAsync(offset, msg.ProcessingMs, $"B-w{i}", sw);
 
                 // register in-flight
                 state.InFlight[offset] = processingTask;
@@ -173,7 +179,6 @@ class Program
     {
         lock (state.CommitLock)
         {
-            // If the completed task is recorded and truly completed, we'll let the loop handle it
             // Advance contiguous offsets
             while (true)
             {
